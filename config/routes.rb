@@ -1,3 +1,15 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  post "/users" => "users#create"
+
+  get "/dishes" => "dishes#index"
+
+  get "/categories" => "categories#index"
+
+  get "/orders" => "orders#index"
+
+  get "/carted_dishes" => "carted_dishes#index" 
+
+
+
 end
