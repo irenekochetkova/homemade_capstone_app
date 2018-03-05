@@ -1,14 +1,35 @@
 Rails.application.routes.draw do
   
-  post "/users" => "users#create"
+  
 
+  
+  
   get "/dishes" => "dishes#index"
+  get "/dishes/:id" => "dishes#show"
+  post "/dishes" => "dishes#create"
+  patch "/dishes/:id" => "dishes#update"
+  delete "/dishes/:id" => "dishes#destroy"
+
+
+  # home page
+  post '/user_token' => 'user_token#create'
+  get "/users/:id" => "users#show"
+  post "/users" => "users#create"
+  patch "/users/:id" => "users#update"
+  delete "/users/:id" => "users#destroy"
+
+  get "/dishes/:id" => "dishes#show"
 
   get "/categories" => "categories#index"
+  get "/categories/:id" => "categories#show"
 
   get "/orders" => "orders#index"
+  get "/orders/:id" => "orders#show"
 
   get "/carted_dishes" => "carted_dishes#index" 
+  post "/carted_dishes" => "carted_dishes#create" 
+  patch "/carted_dishes/:id" => "carted_dishes#update" 
+  delete "/carted_dishes/:id" => "carted_dishes#destroy" 
 
 
 

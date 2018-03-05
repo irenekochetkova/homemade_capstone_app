@@ -4,4 +4,6 @@ class Dish < ApplicationRecord
 
   has_many :carted_dishes
   has_many :orders, through: :carted_dishes
+
+  
 end
