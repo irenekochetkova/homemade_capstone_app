@@ -78,10 +78,22 @@ var DishesNewPage = {
       price: "",
       description: "",
       category_id: "",
+
       image_url: "",
       availability: "",
-      errors: []
+      user_id: "",
+      errors: [],
+      categories: []
     };
+  },
+  created: function() {
+
+    axios.get("http://localhost:3000/categories").then(function(response) {
+
+      this.categories = response.data; 
+      console.log(response.data);
+
+    }.bind(this));
   },
   methods: {
     submit: function() {
@@ -92,6 +104,8 @@ var DishesNewPage = {
         category_id: this.category_id,
         image_url: this.image_url,
         availability: this.availability
+        
+        
        
       };
       axios
@@ -107,6 +121,72 @@ var DishesNewPage = {
     }
   }
 };
+
+var DishesEditPage = {
+  template: "#dishes-edit-page",
+  data: function() {
+    return {
+      name: "",
+      price: "",
+      description: "",
+      category_id: "",
+      image_url: "",
+      availability: "",
+      user_id: "",
+      errors: [],
+      categories: []
+    };
+  },
+  created: function() {
+    
+
+    axios.get("/dishes/" + this.$route.params.id).then(
+      function(response) {
+        this.name = response.data.name;
+        this.price = response.data.price;
+        this.description = response.data.description;
+        this.category_id = response.data.category_id;
+        this.image_url = response.data.image_url;
+        this.availability = response.data.availability;
+        this.user_id = response.data.user_id;
+      }.bind(this)),
+    axios.get("/categories/").then(function(response) {
+      this.categories = response.data; 
+      console.log(response.data);
+      }.bind(this));
+    
+    
+  },
+
+
+  
+  methods: {
+    submit: function() {
+      var params = {
+        name: this.name,
+        price: this.price,
+        description: this.description,
+        category_id: this.category_id,
+        image_url: this.image_url,
+        availability: this.availability
+      };
+      axios
+        .patch("/dishes/" + this.$route.params.id, params)
+        .then(function(response) {
+          router.push("/");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+            router.push("/login");
+          }.bind(this)
+        );
+    }
+  },
+
+
+};
+
 
 var LoginPage = {
   template: "#login-page",
@@ -142,6 +222,21 @@ var LoginPage = {
   }
 };
 
+var DishesDeletePage = {
+  template: "#dishes-delete-page",
+  data: function() {
+    return {
+      dish: {}
+    };
+  },
+  created: function() {
+    axios.delete("/dishes/" + this.$route.params.id).then(function(response) {
+      console.log(response.data);
+      this.dish = response.data.delete;
+    }.bind(this));
+  }
+}
+
 var LogoutPage = {
   created: function() {
     axios.defaults.headers.common["Authorization"] = undefined;
@@ -155,7 +250,11 @@ var router = new VueRouter({
     { path: "/", component: DishesIndexPage },
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
-    { path: "/dishes/new", component: DishesNewPage }
+    { path: "/logout", component: LogoutPage },
+    { path: "/dishes/new", component: DishesNewPage },
+    { path: "/dishes/:id/edit", component: DishesEditPage },
+    { path: "/dishes/:id/delete", component: DishesDeletePage }
+    
     
   ],
   scrollBehavior: function(to, from, savedPosition) {

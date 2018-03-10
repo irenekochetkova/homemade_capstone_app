@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-
+  # before_action :authenticate_user
 
 
   def index
@@ -22,7 +22,7 @@ class DishesController < ApplicationController
       image_url: params[:image_url],
       description: params[:description],
       availability: params[:availability],
-      user_id: params[:user_id],
+      user_id: current_user.id,
       category_id: params[:category_id]
       )
     if dish.save
@@ -41,7 +41,7 @@ end
       image_url: params[:image_url] || dish.image_url,
       description: params[:description] || dish.description,
       availability: params[:availability] || dish.availability,
-      user_id: params[:user_id] || dish.user_id,
+      
       category_id: params[:category_id] || dish.category_id
       )
     if dish.save

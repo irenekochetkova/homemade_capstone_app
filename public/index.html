@@ -26,14 +26,24 @@
           <a class="nav-link" href="/#/dishes/new">New Dish<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/#/signup">signup</a>
+        <a class="nav-link" href="/#/dishes/:id/edit">Edit Dish</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/#/login">login</a>
+        <a class="nav-link" href="/#/dishes/:id/delete">Delete Dish</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link disabled" href="/#/logout">logout</a>
+        <a class="nav-link disabled" href="#"></a>
         </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account 
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="/#/signup">SignUp</a>
+          <a class="dropdown-item" href="/#/login">LogIn</a>
+          <a class="dropdown-item" href="/#/logout">LogOut</a>
+        </div>
+      </li>
       </ul>
      </div>
    </nav>
@@ -58,13 +68,7 @@
 </body>
 </html>
 
-<!-- <template id="home-page">
-  <div class="vue-component">
 
-    <h1>{{ message }}</h1>
-
-  </div>
-</template> -->
 
 <template id="signup-page">
   <div class="vue-component">
@@ -110,8 +114,8 @@
       </div>
       <div class="form-group">
         <form action="">
-         <input type="radio" name="provider" value="true"> Chief<br>
-         <input type="radio" name="provider" value="false"> Customer<br>
+         <input type="radio" name="provider" value="true" v-model="provider">Chief<br>
+         <input type="radio" name="provider" value="false" v-model="provider">Customer<br>
         </form>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
@@ -142,7 +146,9 @@
 </template>
 
 <template id="dish-index-page">
+
   <div class="vue-component">
+
     <div class="row">
       <div v-for="dish in dishes" class="col-md-4">
         <div class="card mb-2">
@@ -150,14 +156,46 @@
           <div class="card-body">
             <h5 class="card-text name">{{  dish.name }}</h5>
             <p class="card-text price">Price: {{  dish.price }}</p>
-            <p class="card-text description">Description: {{ dish.description }}</p>
-            
-           
-            <a href="#" class="btn btn-primary">More info</a>    
+            <!-- <p class="card-text description">Description: {{ dish.description }}</p> -->
+            <div >
+             <a v-on:click="setCurrentDish(dish)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">More info</a>
+           </div>
+             <div>
+            <a :href="'/#/dishes/' + dish.id + '/edit'">Edit Dish</a> 
+             </div>
+             <div>
+            <a :href="'/#/dishes/' + dish.id + '/delete'">Delete Dish</a> 
+             </div>
+            <a href="#">Add to Cart</a> 
+
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{ currentDish.name }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img :src="currentDish.image_url" alt="">
+            <p> {{ currentDish.price }}</p>
+            <p> {{ currentDish.description }}</p>
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -181,24 +219,89 @@
         <label>Description:</label>
         <input type="text" class="form-control" v-model="description">
       </div>
-      <div class="form-group">
-        <label>Cuisine:</label>
-        <input type="integer" class="form-control" v-model="category_id">
+
+
+      <label>Cuisine:</label>
+
+      <div class="form-group" >
+       
+         <input type="text" class="form-control" v-model="category_id" list="titles">
+        <datalist id="titles">
+
+           <option v-for="category in categories">{{ category.id + " " + category.title }}</option>
+
+        </datalist>
       </div>
+
+
       <div class="form-group">
         <label>Image:</label>
         <input type="text" class="form-control" v-model="image_url">
       </div>
+
       <div class="form-group">
         <label>Number of dishes:</label>
         <input type="text" class="form-control" v-model="availability">
       </div>
-      <div class="form-group">
-        <label>User:</label>
-        <input type="integer" class="form-control" v-model="user_id">
-      </div>
+     
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
+
+  </div>
+</template>
+
+<template id="dishes-edit-page">
+  <div class="container">
+    <h1>Edit Dish</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Name:</label> 
+        <input type="text" class="form-control" v-model="name">
+      </div>
+      <div class="form-group">
+        <label>Price:</label>
+        <input type="decimal" class="form-control" v-model="price">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <input type="text" class="form-control" v-model="description">
+      </div>
+
+
+      <label>Cuisine:</label>
+
+      <div class="form-group" >
+       
+         <input type="text" class="form-control" v-model="category_id" list="titles" >
+        <datalist id="titles">
+
+           <option v-for="category in categories">{{ category.id + " " + category.title }}</option>
+
+        </datalist>
+      </div>
+
+
+      <div class="form-group">
+        <label>Image:</label>
+        <input type="text" class="form-control" v-model="image_url">
+      </div>
+
+      <div class="form-group">
+        <label>Number of dishes:</label>
+        <input type="text" class="form-control" v-model="availability">
+      </div>
+     <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div>
+
+  </div>
+</template>
+
+<template id="dishes-delete-page">
+  <div class="vue-component">
+
+    <a href="/#/">Back to all dishes</a>
 
   </div>
 </template>
