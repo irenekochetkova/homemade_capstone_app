@@ -48,7 +48,10 @@ var SignupPage = {
   data: function() {
     return {
       dishes: [],
-      currentDish: {}
+      currentDish: {},
+      quantity: ""
+     
+
       
     };
   },
@@ -57,17 +60,42 @@ var SignupPage = {
     axios.get("http://localhost:3000/dishes").then(function(response) {
 
       this.dishes = response.data; 
-      console.log(response.data);
+      // console.log(response.data);
+
+
 
     }.bind(this));
   },
 methods: {
   setCurrentDish: function(dish) {
     this.currentDish = dish;
+    
     console.log(this.currentDish);
-  }
- }
+  },
 
+  submit: function() {
+      var params = {
+        quantity: this.quantity,
+        dish_id:  this.currentDish.id
+      
+       
+      };
+      axios
+        .post("/carted_dishes", params)
+        .then(function(response) {
+          console.log(response.data)
+          router.push("/");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+
+ },
+
+ 
 };
 
 var DishesNewPage = {
@@ -91,7 +119,7 @@ var DishesNewPage = {
     axios.get("http://localhost:3000/categories").then(function(response) {
 
       this.categories = response.data; 
-      console.log(response.data);
+      // console.log(response.data);
 
     }.bind(this));
   },
@@ -132,27 +160,29 @@ var DishesEditPage = {
       category_id: "",
       image_url: "",
       availability: "",
+      // dish_category: "",
       user_id: "",
       errors: [],
       categories: []
+
     };
   },
   created: function() {
-    
+    $('#exampleModal').modal('hide');
 
     axios.get("/dishes/" + this.$route.params.id).then(
       function(response) {
         this.name = response.data.name;
         this.price = response.data.price;
         this.description = response.data.description;
-        this.category_id = response.data.category_id;
+        // this.dish_category = response.data.category_id;
         this.image_url = response.data.image_url;
         this.availability = response.data.availability;
         this.user_id = response.data.user_id;
       }.bind(this)),
     axios.get("/categories/").then(function(response) {
       this.categories = response.data; 
-      console.log(response.data);
+      //console.log(response.data);
       }.bind(this));
     
     
@@ -230,12 +260,15 @@ var DishesDeletePage = {
     };
   },
   created: function() {
+    $('#exampleModal').modal('hide');
     axios.delete("/dishes/" + this.$route.params.id).then(function(response) {
       console.log(response.data);
       this.dish = response.data.delete;
     }.bind(this));
   }
-}
+};
+
+
 
 var LogoutPage = {
   created: function() {
@@ -243,6 +276,39 @@ var LogoutPage = {
     localStorage.removeItem("jwt");
     router.push("/");
   }
+};
+
+
+var CartedDishesIndexPage = {
+  template: "#carted_dish-index-page",
+  data: function() {
+    return {
+
+      carted_dishes: [],
+      dishes: []
+      
+     
+
+      
+    };
+  },
+  created: function() {
+    axios.get("http://localhost:3000/carted_dishes").then(function(response) {
+      this.carted_dishes = response.data; 
+      // console.log(response.data);
+    }.bind(this)),
+    axios.get("http://localhost:3000/dishes").then(function(response) {
+      this.dishes = response.data; 
+      // console.log(response.data);
+    }.bind(this));
+
+  }, 
+  // methods: {
+  //   even: function(dishes) {
+  //     if (this.dish_id === dish.id;
+
+  //   }
+  // }
 };
 
 var router = new VueRouter({
@@ -253,7 +319,8 @@ var router = new VueRouter({
     { path: "/logout", component: LogoutPage },
     { path: "/dishes/new", component: DishesNewPage },
     { path: "/dishes/:id/edit", component: DishesEditPage },
-    { path: "/dishes/:id/delete", component: DishesDeletePage }
+    { path: "/dishes/:id/delete", component: DishesDeletePage },
+    { path: "/carted_dishes", component: CartedDishesIndexPage }
     
     
   ],

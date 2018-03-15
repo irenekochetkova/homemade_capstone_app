@@ -26,10 +26,13 @@
           <a class="nav-link" href="/#/dishes/new">New Dish<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/#/dishes/:id/edit">Edit Dish</a>
+        <a class="nav-link" href="/#/carted_dishes">Your cart</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/#/dishes/:id/delete">Delete Dish</a>
+        <a class="nav-link" href="#"></a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"></a>
         </li>
         <li class="nav-item">
         <a class="nav-link disabled" href="#"></a>
@@ -152,7 +155,7 @@
     <div class="row">
       <div v-for="dish in dishes" class="col-md-4">
         <div class="card mb-2">
-          <img class="card-img-top" :src="dish.image_url" alt="Card image cap">
+          <img class="card-img-top small-img" :src="dish.image_url" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-text name">{{  dish.name }}</h5>
             <p class="card-text price">Price: {{  dish.price }}</p>
@@ -160,14 +163,6 @@
             <div >
              <a v-on:click="setCurrentDish(dish)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">More info</a>
            </div>
-             <div>
-            <a :href="'/#/dishes/' + dish.id + '/edit'">Edit Dish</a> 
-             </div>
-             <div>
-            <a :href="'/#/dishes/' + dish.id + '/delete'">Delete Dish</a> 
-             </div>
-            <a href="#">Add to Cart</a> 
-
           </div>
         </div>
       </div>
@@ -184,19 +179,42 @@
             </button>
           </div>
           <div class="modal-body">
-            <img :src="currentDish.image_url" alt="">
+            <img class="small-img" :src="currentDish.image_url" alt="Card image cap">
             <p> {{ currentDish.price }}</p>
             <p> {{ currentDish.description }}</p>
            
           </div>
+
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
+
+          
+
+ 
+
+
+      <a :href="'/#/dishes/' + currentDish.id + '/edit'"><button type="button" class="btn btn-secondary">Edit Dish</button></a>
+           
+      <a :href="'/#/dishes/' + currentDish.id + '/delete'"><button type="button" class="btn btn-secondary">Delete Dish</button></a>
+
+      <div class="form-group">
+        <label>Quantity:</label> 
+        <input type="number" class="form-control" v-model="quantity">
+      </div>  
+
+      <a href="/#/carted_dishes/new"><button v-on:click="submit()" type="button" class="btn btn-secondary">Add to cart</button></a>                                                        
+
+         
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
       </div>
     </div>
 
   </div>
+
 </template>
 
 <template id="dishes-new-page">
@@ -305,3 +323,29 @@
 
   </div>
 </template>
+
+<template id="carted_dish-index-page">
+
+  <div class="vue-component">
+
+    <div class="row">
+      <div v-for="carted_dish in carted_dishes"  class="col-md-4">
+        <div class="card mb-2">
+        
+          <div class="card-body" >
+            
+             <h5 class="card-title name">Name: {{ dishes }}</h5>
+              <p class="card-text id">Number cart: {{  carted_dish.id }}</p>
+             <p class="card-text quantity">Quantity: {{  carted_dish.quantity }}</p>
+          
+           <!--  <p class="card-text price">Quantity: {{  carted_dish.quantity }}</p> -->
+            <!-- <p class="card-text description">Description: {{ dish.description }}</p> -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+

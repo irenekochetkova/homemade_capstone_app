@@ -1,15 +1,16 @@
 class CartedDishesController < ApplicationController
   def index
-    carted_dishes = CartedDish.where(status: "carted")
+    carted_dishes = CartedDish.where(status: "created")
     render json: carted_dishes.as_json
   end
 
 
   def create
     carted_dish = CartedDish.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       dish_id: params[:dish_id],
       quantity: params[:quantity],
+      
       status: "created"
       )
     if carted_dish.save

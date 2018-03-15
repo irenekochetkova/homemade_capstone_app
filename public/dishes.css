@@ -2,3 +2,8 @@ body {
   font-family: Futura, sans-serif;
   background-image: url('retina_wood.png');
 }
+
+.small-img {
+    display:block;
+    width: 100px;
+  }
