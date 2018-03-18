@@ -31,10 +31,13 @@
         <a class="nav-link" href="/#/carted_dishes">Your cart</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/#//orders/:id">Your order</a>
+        <a class="nav-link" href="/#/orders">Your orders</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#"></a>
+        <a class="nav-link" href="/#/orders/:id/">Your order</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/#/users/">Your account</a>
         </li>
         <li class="nav-item">
         <a class="nav-link disabled" href="#"></a>
@@ -150,6 +153,17 @@
 
   </div>
 </template>
+
+<template id="profile-show-page">
+    <div class="vue-component">
+    
+    <h2>{{ current_user.first_name }}</h2>    
+   <!--  <h2>{{ contact.email }}</h2>
+    <h2>{{ contact.phone_number }}</h2>
+    <h2>{{ contact.bio }}</h2> -->
+  </div>
+</template>
+
 
 <template id="dish-index-page">
 
@@ -322,31 +336,33 @@
 
 
 <template id="carted_dish-index-page">
+ 
 
   <div class="vue-component">
-
-   <!--  <div class="row"> -->
+ 
       <div v-for="carted_dish in carted_dishes"  class="col-md-4">
         <div class="card mb-2">
         
-          <div class="card-body shop" >
+          <div class="card-body" >
 
             <img class="small-img" :src="carted_dish.dish.image_url" alt="">
             
              <h5 class="card-title name">Dish: {{ carted_dish.dish.name }}</h5>
              <p class="card-text first_name">Customer: {{  carted_dish.user.first_name }}</p>
-             <p class="card-text quantity">Quantity: {{  carted_dish.quantity }}</p>
-           <!--   <p class="card-text subtotal">Subtotal: {{  carted_dish.subtotal }}</p>
- -->
+             <p class="number">Quantity: {{  carted_dish.quantity }}</p>
+             <p class="number">Price: {{  carted_dish.dish.price }}</p>
+             <p class="number">Subtotal: {{  carted_dish.subtotal }}</p> 
+
              <p class="card-text status">Status: {{  carted_dish.status }}</p>     
             
           </div>
            <a :href="'/#/carted_dishes/' + carted_dish.id + '/delete'"><button type="button" class="btn btn-secondary">Delete</button></a>
         </div>
+       
       </div>
-   <!--  </div> -->
-
-  </div>
+      <button class="btn btn-primary" v-on:click="checkout()">Checkout</button>
+   </div>        
+    
 </template>
 
 <template id="cartedDishes-delete-page">
@@ -355,21 +371,23 @@
     <a href="/#/carted_dishes">Back to your cart</a>
 
   </div>
+
 </template>
 
-<template id="orders-page">
+<!-- <template id="orders-page">
   <div class="vue-component">
 
     <a href="/#/carted_dishes">Back to your cart</a>
 
   </div>
-</template>
+
+</template> -->
 
 <template id="orders-index-page">
 
   <div class="vue-component">
 <h1>Your orders</h1>
-   <!--  <div class="row"> -->
+   
       <div v-for="order in orders"  class="col-md-4">
 
         <div class="card mb-2">
@@ -379,20 +397,37 @@
             
 
             <h2>Order #{{ order.id}}</h2>
+             <div v-for="carted_dish in carted_dishes">
+
+          <h2 > {{ carted_dish.dish.name }}</h2>
+          <h2> Subtotal: {{ carted_dish.subtotal }}</h2>
+
+          </div>
           </div>
            
         </div>
       </div>
-   <!--  </div> -->
+
 
   </div>
 </template>
 
-<!-- <template id="orders-show-page">
+
+
+
+
+ <template id="orders-show-page">
       <div class="vue-component">
-        <div v-for="order in orders" s>
-          <h1>Your orders</h1>
-          <h2>Order #{{ order.id}}</h2>
+        <div >
+          <h1>Your order</h1>
+          <h2> Order #{{ order.id}}</h2>
+          <div v-for="carted_dish in carted_dishes">
+
+          <h2 > {{ carted_dish.dish.name }}</h2>
+          <h2> Subtotal: {{ carted_dish.subtotal }}</h2>
+
+          </div>
+         <!-- <h5 class="card-title name">Dish: {{ carted_dish.dish.name }}</h5> -->
          
         </div>
         

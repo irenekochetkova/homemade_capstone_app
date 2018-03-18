@@ -1,6 +1,5 @@
 class CartedDishesController < ApplicationController
 
-
   def index
 
     if current_user

@@ -9,13 +9,13 @@ class Dish < ApplicationRecord
   validates :price, presence: true
   validates :description, length: {in: 3..500}
 
-  def tax
-    price.to_f * 0.1
-  end
+  # def tax
+  #   price.to_f * 0.1
+  # end
 
-  def total
-    price.to_f + tax
-  end
+  # def total
+  #   price.to_f + tax
+  # end
 
   def as_json
     {
@@ -24,8 +24,8 @@ class Dish < ApplicationRecord
       price: price,
       image_url: image_url,
       description: description,
-      tax: tax,
-      total: total,
+      # tax: tax,
+      # total: total,
       user: user,
       category: category
     }

@@ -43,6 +43,21 @@ var SignupPage = {
   }
 };
 
+var ProfileShowPage = {
+  template: "#profile-show-page",
+  data: function() {
+    return {
+      current_user: {}
+    };
+  },
+  created: function() {
+    axios.get("/users/" + this.$route.params.id).then(function(response) {
+      console.log(response.data);
+      this.current_user = response.data;
+    }.bind(this));
+  }
+};
+
  var DishesIndexPage = {
   template: "#dish-index-page",
   data: function() {
@@ -297,18 +312,11 @@ var CartedDishesIndexPage = {
 
       carted_dishes: [],
       dishes: [],
-      
+     
       errors: []
-
-     
-      
-     
-
       
     };
   },
-
-
 
   created: function() {
     axios.get("/carted_dishes").then(function(response) {
@@ -323,30 +331,25 @@ var CartedDishesIndexPage = {
   },
 
   methods: {
-    submit: function() {
-      var params = {
-        quantity: this.quantity
-      };
-      axios.patch("/carted_dishes/" + this.$route.params.id, params).then(function(response) {
-          router.push("/carted_dishes");
-        })
-        .catch(
-          function(error) {
-            this.errors = error.response.data.errors;
-            router.push("/login");
-          }.bind(this));
-    },
-
-
-    
-
+    checkout: function() {
+        var params = {
+          carted_dishes: this.carted_dishes,
+        };
+        axios
+          .post("/orders", params)
+          // .then(function(response) {
+          //   router.push("/orders");
+          // })
+          // .catch(
+          //   function(error) {
+          //     this.errors = error.response.data.errors;
+          //     router.push("/login");
+          //   }.bind(this)
+          // );
+      }
   },
-
-  // computed: {
-  //   subtotal: function() {
-  //     return this.quantity * this.dish.price
-  //   }
-  // }
+  
+ 
      
 };
 
@@ -367,20 +370,25 @@ var CartedDishesDeletePage = {
 };
 
 
-// var OrdersShowPage = {
-//   template: "#orders-show-page",
-//   data: function() {
-//     return {
-//       order: {}
-//     };
-//   },
-//   created: function() {
-//     axios.get("/orders/" + this.$route.params.id).then(function(response) {
-//       console.log(response.data);
-//       this.order = response.data;      
-//     }.bind(this));
-//   }
-// };
+var OrdersShowPage = {
+  template: "#orders-show-page",
+  data: function() {
+    return {
+      order: {},
+      dishes: [],
+      carted_dishes: []
+    };
+  },
+  created: function() {
+    axios.get("/orders/" + this.$route.params.id).then(function(response) {
+      console.log(response.data);
+      this.order = response.data; 
+      this.carted_dishes = this.order["carted_dishes"]
+    // console.log(carted_dishes);     
+    }.bind(this));
+    
+  }
+};
 
 var OrdersIndexPage = {
   template: "#orders-index-page",
@@ -388,32 +396,35 @@ var OrdersIndexPage = {
     return {
 
       orders: [],
-      
-      
+      carted_dishes: [],
+      dishes: [],      
       errors: []
-
-     
-      
-     
-
-      
+            
     };
   },
   created: function() {
-    axios.get("/orders").then(function(response) {
-      this.carted_dishes = response.data; 
-      console.log(response.data);
-    }.bind(this)),
-    axios.get("/orders").then(function(response) {
+    // axios.get("/carted_dishes").then(function(response) {
+    //   this.carted_dishes = response.data; 
+    //   console.log(response.data);
+    // }.bind(this)),
+    //  axios.get("/dishes").then(function(response) {
+    //   this.dishes = response.data; 
+    //   console.log(response.data);
+    // }.bind(this)),
+    axios.get("/orders/").then(function(response) {
       this.orders = response.data; 
-      console.log(response.data);
+      this.carted_dishes = this.orders["carted_dishes"]
+      // console.log(response.data);
     }.bind(this));
-
+    
   },
 
   
      
 };
+
+
+
 
 
 var router = new VueRouter({
@@ -422,13 +433,14 @@ var router = new VueRouter({
     { path: "/signup", component: SignupPage },
     { path: "/login", component: LoginPage },
     { path: "/logout", component: LogoutPage },
+    { path: "/users/:id", component: ProfileShowPage },
     { path: "/dishes/new", component: DishesNewPage },
     { path: "/dishes/:id/edit", component: DishesEditPage },
     { path: "/dishes/:id/delete", component: DishesDeletePage },
     { path: "/carted_dishes", component: CartedDishesIndexPage },
     { path: "/carted_dishes/:id/delete", component: CartedDishesDeletePage },
-    { path: "/orders", component: OrdersIndexPage }
-    // { path: "/orders/:id", component: OrdersShowPage }
+    { path: "/orders", component: OrdersIndexPage },
+    { path: "/orders/:id", component: OrdersShowPage }
 
   
     

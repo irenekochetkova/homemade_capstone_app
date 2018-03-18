@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
   def show
-    user = User.find_by(id: params[:id])
+    # user = User.find_by(id: params[:id])
+    # render json: user.as_json
+
+    user = current_user
     render json: user.as_json
   end
   
@@ -17,7 +20,8 @@ class UsersController < ApplicationController
       password_confirmation: params[:password_confirmation],
       provider: params[:provider]
       )
-  
+    
+    
 
 
     if user.save
