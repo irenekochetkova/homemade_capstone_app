@@ -1,13 +1,15 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html> -->
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
+   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css?family=Pirata+One" rel="stylesheet" type="text/css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Custom Css -->
     <link rel="stylesheet" href="dishes.css">
-    <!--  <link href="<%= image_path("favicon.ico") %>" rel="shortcut icon" /> -->
 
     <title>Dishes Index</title>
  
@@ -29,7 +31,7 @@
         <a class="nav-link" href="/#/carted_dishes">Your cart</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="#"></a>
+        <a class="nav-link" href="/#//orders/:id">Your order</a>
         </li>
         <li class="nav-item">
         <a class="nav-link" href="#"></a>
@@ -68,6 +70,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="index.js" defer></script>
+
 </body>
 </html>
 
@@ -174,6 +177,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">{{ currentDish.name }}</h5>
+
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -182,6 +186,7 @@
             <img class="small-img" :src="currentDish.image_url" alt="Card image cap">
             <p> {{ currentDish.price }}</p>
             <p> {{ currentDish.description }}</p>
+            <!-- <p> Chief: {{ currentDish.user}}</p> -->
            
           </div>
 
@@ -256,12 +261,7 @@
         <label>Image:</label>
         <input type="text" class="form-control" v-model="image_url">
       </div>
-
-      <div class="form-group">
-        <label>Number of dishes:</label>
-        <input type="text" class="form-control" v-model="availability">
-      </div>
-     
+           
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
 
@@ -306,12 +306,7 @@
         <input type="text" class="form-control" v-model="image_url">
       </div>
 
-      <div class="form-group">
-        <label>Number of dishes:</label>
-        <input type="text" class="form-control" v-model="availability">
-      </div>
-     <button class="btn btn-primary" v-on:click="submit()">Submit</button>
-    </div>
+      
 
   </div>
 </template>
@@ -324,28 +319,83 @@
   </div>
 </template>
 
+
+
 <template id="carted_dish-index-page">
 
   <div class="vue-component">
 
-    <div class="row">
+   <!--  <div class="row"> -->
       <div v-for="carted_dish in carted_dishes"  class="col-md-4">
         <div class="card mb-2">
         
-          <div class="card-body" >
+          <div class="card-body shop" >
+
+            <img class="small-img" :src="carted_dish.dish.image_url" alt="">
             
-             <h5 class="card-title name">Name: {{ dishes }}</h5>
-              <p class="card-text id">Number cart: {{  carted_dish.id }}</p>
+             <h5 class="card-title name">Dish: {{ carted_dish.dish.name }}</h5>
+             <p class="card-text first_name">Customer: {{  carted_dish.user.first_name }}</p>
              <p class="card-text quantity">Quantity: {{  carted_dish.quantity }}</p>
-          
-           <!--  <p class="card-text price">Quantity: {{  carted_dish.quantity }}</p> -->
-            <!-- <p class="card-text description">Description: {{ dish.description }}</p> -->
+           <!--   <p class="card-text subtotal">Subtotal: {{  carted_dish.subtotal }}</p>
+ -->
+             <p class="card-text status">Status: {{  carted_dish.status }}</p>     
             
           </div>
+           <a :href="'/#/carted_dishes/' + carted_dish.id + '/delete'"><button type="button" class="btn btn-secondary">Delete</button></a>
         </div>
       </div>
-    </div>
+   <!--  </div> -->
 
   </div>
 </template>
 
+<template id="cartedDishes-delete-page">
+  <div class="vue-component">
+
+    <a href="/#/carted_dishes">Back to your cart</a>
+
+  </div>
+</template>
+
+<template id="orders-page">
+  <div class="vue-component">
+
+    <a href="/#/carted_dishes">Back to your cart</a>
+
+  </div>
+</template>
+
+<template id="orders-index-page">
+
+  <div class="vue-component">
+<h1>Your orders</h1>
+   <!--  <div class="row"> -->
+      <div v-for="order in orders"  class="col-md-4">
+
+        <div class="card mb-2">
+        
+          <div class="card-body" >
+
+            
+
+            <h2>Order #{{ order.id}}</h2>
+          </div>
+           
+        </div>
+      </div>
+   <!--  </div> -->
+
+  </div>
+</template>
+
+<!-- <template id="orders-show-page">
+      <div class="vue-component">
+        <div v-for="order in orders" s>
+          <h1>Your orders</h1>
+          <h2>Order #{{ order.id}}</h2>
+         
+        </div>
+        
+
+      </div>
+    </template>

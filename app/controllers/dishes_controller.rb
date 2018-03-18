@@ -21,7 +21,7 @@ class DishesController < ApplicationController
       price: params[:price],
       image_url: params[:image_url],
       description: params[:description],
-      availability: params[:availability],
+      
       user_id: current_user.id,
       category_id: params[:category_id]
       )
@@ -40,7 +40,7 @@ end
       price: params[:price] || dish.price,
       image_url: params[:image_url] || dish.image_url,
       description: params[:description] || dish.description,
-      availability: params[:availability] || dish.availability,
+      
       
       category_id: params[:category_id] || dish.category_id
       )

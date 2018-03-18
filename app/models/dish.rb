@@ -10,11 +10,11 @@ class Dish < ApplicationRecord
   validates :description, length: {in: 3..500}
 
   def tax
-    price * 0.1
+    price.to_f * 0.1
   end
 
   def total
-    price + tax
+    price.to_f + tax
   end
 
   def as_json
@@ -26,7 +26,7 @@ class Dish < ApplicationRecord
       description: description,
       tax: tax,
       total: total,
-      
+      user: user,
       category: category
     }
   end

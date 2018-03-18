@@ -1,7 +1,16 @@
 class CartedDishesController < ApplicationController
+
+
   def index
-    carted_dishes = CartedDish.where(status: "created")
-    render json: carted_dishes.as_json
+
+    if current_user
+
+      carted_dishes = current_user.carted_dishes.where(status: "carted")
+      render json: carted_dishes.as_json
+    else
+      render json: []
+    end
+
   end
 
 
@@ -11,7 +20,7 @@ class CartedDishesController < ApplicationController
       dish_id: params[:dish_id],
       quantity: params[:quantity],
       
-      status: "created"
+      status: "carted"
       )
     if carted_dish.save
       render json: carted_dish.as_json
@@ -21,7 +30,8 @@ class CartedDishesController < ApplicationController
   end
 
   def update
-    carted_dish = CartedDish.find_by(id: params[:id]).update(
+    carted_dish = CartedDish.find_by(id: params[:id])
+    carted_dish.update(
       quantity: params[:quantity]
       )
     if carted_dish.save
@@ -32,8 +42,10 @@ class CartedDishesController < ApplicationController
   end
 
   def destroy
-    carted_dish = CartedDish.find_by(id: params[:id]).delete
-    render json: {message: "Successfully delete."}
+    carted_dish = CartedDish.find_by(id: params[:id])
+    carted_dish.status = "removed"
+    carted_dish.save
+    render json: {status: "Carted dish successfully removed!"}
   end 
 
 end

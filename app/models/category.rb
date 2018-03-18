@@ -1,12 +1,13 @@
 class Category < ApplicationRecord
   has_many :dishes
-end
 
-def as_json
-  {
-    id: id,
-    title: title
-  }
-end
+
+# def as_json
+#   {
+#     id: id,
+#     title: title,
+#     dishes: dishes.map { |dish| dish.name }
+#   }
+# end
   
 end

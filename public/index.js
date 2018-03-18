@@ -49,6 +49,7 @@ var SignupPage = {
     return {
       dishes: [],
       currentDish: {},
+      users: [],
       quantity: ""
      
 
@@ -65,6 +66,14 @@ var SignupPage = {
 
 
     }.bind(this));
+    // axios.get("http://localhost:3000/users").then(function(response) {
+
+    //   this.users = response.data; 
+    //   console.log(response.data);
+
+
+
+    // }.bind(this));
   },
 methods: {
   setCurrentDish: function(dish) {
@@ -76,7 +85,8 @@ methods: {
   submit: function() {
       var params = {
         quantity: this.quantity,
-        dish_id:  this.currentDish.id
+        dish_id:  this.currentDish.id,
+        status
       
        
       };
@@ -91,6 +101,7 @@ methods: {
             this.errors = error.response.data.errors;
           }.bind(this)
         );
+        $('#exampleModal').modal('hide');
     }
 
  },
@@ -108,14 +119,14 @@ var DishesNewPage = {
       category_id: "",
 
       image_url: "",
-      availability: "",
+     
       user_id: "",
       errors: [],
       categories: []
     };
   },
   created: function() {
-
+   $('#exampleModal').modal('hide');
     axios.get("http://localhost:3000/categories").then(function(response) {
 
       this.categories = response.data; 
@@ -130,8 +141,8 @@ var DishesNewPage = {
         price: this.price,
         description: this.description,
         category_id: this.category_id,
-        image_url: this.image_url,
-        availability: this.availability
+        image_url: this.image_url
+       
         
         
        
@@ -159,7 +170,7 @@ var DishesEditPage = {
       description: "",
       category_id: "",
       image_url: "",
-      availability: "",
+      
       // dish_category: "",
       user_id: "",
       errors: [],
@@ -177,7 +188,7 @@ var DishesEditPage = {
         this.description = response.data.description;
         // this.dish_category = response.data.category_id;
         this.image_url = response.data.image_url;
-        this.availability = response.data.availability;
+        
         this.user_id = response.data.user_id;
       }.bind(this)),
     axios.get("/categories/").then(function(response) {
@@ -285,7 +296,103 @@ var CartedDishesIndexPage = {
     return {
 
       carted_dishes: [],
-      dishes: []
+      dishes: [],
+      
+      errors: []
+
+     
+      
+     
+
+      
+    };
+  },
+
+
+
+  created: function() {
+    axios.get("/carted_dishes").then(function(response) {
+      this.carted_dishes = response.data; 
+      console.log(response.data);
+    }.bind(this)),
+    axios.get("/dishes").then(function(response) {
+      this.dishes = response.data; 
+      console.log(response.data);
+    }.bind(this));
+
+  },
+
+  methods: {
+    submit: function() {
+      var params = {
+        quantity: this.quantity
+      };
+      axios.patch("/carted_dishes/" + this.$route.params.id, params).then(function(response) {
+          router.push("/carted_dishes");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+            router.push("/login");
+          }.bind(this));
+    },
+
+
+    
+
+  },
+
+  // computed: {
+  //   subtotal: function() {
+  //     return this.quantity * this.dish.price
+  //   }
+  // }
+     
+};
+
+var CartedDishesDeletePage = {
+  template: "#cartedDishes-delete-page",
+  data: function() {
+    return {
+      dish: {}
+    };
+  },
+  created: function() {
+     $('#exampleModal').modal('hide');
+    axios.delete("/carted_dishes/" + this.$route.params.id).then(function(response) {
+      console.log(response.data);
+      this.carted_dish = response.data.delete;
+    }.bind(this));
+  }
+};
+
+
+// var OrdersShowPage = {
+//   template: "#orders-show-page",
+//   data: function() {
+//     return {
+//       order: {}
+//     };
+//   },
+//   created: function() {
+//     axios.get("/orders/" + this.$route.params.id).then(function(response) {
+//       console.log(response.data);
+//       this.order = response.data;      
+//     }.bind(this));
+//   }
+// };
+
+var OrdersIndexPage = {
+  template: "#orders-index-page",
+  data: function() {
+    return {
+
+      orders: [],
+      
+      
+      errors: []
+
+     
       
      
 
@@ -293,23 +400,21 @@ var CartedDishesIndexPage = {
     };
   },
   created: function() {
-    axios.get("http://localhost:3000/carted_dishes").then(function(response) {
+    axios.get("/orders").then(function(response) {
       this.carted_dishes = response.data; 
-      // console.log(response.data);
+      console.log(response.data);
     }.bind(this)),
-    axios.get("http://localhost:3000/dishes").then(function(response) {
-      this.dishes = response.data; 
-      // console.log(response.data);
+    axios.get("/orders").then(function(response) {
+      this.orders = response.data; 
+      console.log(response.data);
     }.bind(this));
 
-  }, 
-  // methods: {
-  //   even: function(dishes) {
-  //     if (this.dish_id === dish.id;
+  },
 
-  //   }
-  // }
+  
+     
 };
+
 
 var router = new VueRouter({
   routes: [
@@ -320,7 +425,13 @@ var router = new VueRouter({
     { path: "/dishes/new", component: DishesNewPage },
     { path: "/dishes/:id/edit", component: DishesEditPage },
     { path: "/dishes/:id/delete", component: DishesDeletePage },
-    { path: "/carted_dishes", component: CartedDishesIndexPage }
+    { path: "/carted_dishes", component: CartedDishesIndexPage },
+    { path: "/carted_dishes/:id/delete", component: CartedDishesDeletePage },
+    { path: "/orders", component: OrdersIndexPage }
+    // { path: "/orders/:id", component: OrdersShowPage }
+
+  
+    
     
     
   ],
