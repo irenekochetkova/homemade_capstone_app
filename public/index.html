@@ -30,14 +30,14 @@
         <li class="nav-item">
         <a class="nav-link" href="/#/carted_dishes">Your cart</a>
         </li>
+        <!-- <li class="nav-item">
+        <a class="nav-link" href="/#/categories">Categories</a>
+        </li> -->
         <li class="nav-item">
-        <a class="nav-link" href="/#/orders">Your orders</a>
+        <a class="nav-link" href="/#/orders/">Your orders</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="/#/orders/:id/">Your order</a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/#/users/">Your account</a>
+        <a class="nav-link" href="/#/current_user/">My account</a>
         </li>
         <li class="nav-item">
         <a class="nav-link disabled" href="#"></a>
@@ -169,6 +169,21 @@
 
   <div class="vue-component">
 
+  <!--  <div class="wrapper">
+   Search by cuisine: <input v-model="titleFilter" list="titles">
+
+       <datalist id="titles">
+
+           <option v-for="category in categories">{{ category.id + " " + category.title }}</option>
+
+        </datalist>
+
+        <transition-group name="slide-left">
+        
+        </transition-group>
+
+        -->
+    
     <div class="row">
       <div v-for="dish in dishes" class="col-md-4">
         <div class="card mb-2">
@@ -176,7 +191,9 @@
           <div class="card-body">
             <h5 class="card-text name">{{  dish.name }}</h5>
             <p class="card-text price">Price: {{  dish.price }}</p>
-            <!-- <p class="card-text description">Description: {{ dish.description }}</p> -->
+            <p class="card-text name">Chief: {{  dish.user.first_name }}</p>
+            <p class="card-text name">Cuisine: {{  dish.category.title }}</p>
+           
             <div >
              <a v-on:click="setCurrentDish(dish)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">More info</a>
            </div>
@@ -191,7 +208,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">{{ currentDish.name }}</h5>
-
+            
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -210,10 +227,14 @@
 
  
 
-
+      <div v-if="currentDish.user_id == current_user.id">
       <a :href="'/#/dishes/' + currentDish.id + '/edit'"><button type="button" class="btn btn-secondary">Edit Dish</button></a>
            
       <a :href="'/#/dishes/' + currentDish.id + '/delete'"><button type="button" class="btn btn-secondary">Delete Dish</button></a>
+    </div>
+  </div>
+
+    <div class="modal-footer">
 
       <div class="form-group">
         <label>Quantity:</label> 
@@ -312,6 +333,8 @@
            <option v-for="category in categories">{{ category.id + " " + category.title }}</option>
 
         </datalist>
+
+
       </div>
 
 
@@ -321,17 +344,21 @@
       </div>
 
       
-
+ <button class="btn btn-primary" v-on:click="submit()">Submit</button>
   </div>
 </template>
+
+
 
 <template id="dishes-delete-page">
   <div class="vue-component">
 
-    <a href="/#/">Back to all dishes</a>
+    <!-- <a href="/#/">Back to all dishes</a> -->
 
   </div>
 </template>
+
+
 
 
 
@@ -351,7 +378,7 @@
              <p class="card-text first_name">Customer: {{  carted_dish.user.first_name }}</p>
              <p class="number">Quantity: {{  carted_dish.quantity }}</p>
              <p class="number">Price: {{  carted_dish.dish.price }}</p>
-             <p class="number">Subtotal: {{  carted_dish.subtotal }}</p> 
+             <!-- <p class="number">Subtotal: {{  carted_dish.subtotal }}</p>  -->
 
              <p class="card-text status">Status: {{  carted_dish.status }}</p>     
             
@@ -374,14 +401,7 @@
 
 </template>
 
-<!-- <template id="orders-page">
-  <div class="vue-component">
 
-    <a href="/#/carted_dishes">Back to your cart</a>
-
-  </div>
-
-</template> -->
 
 <template id="orders-index-page">
 
@@ -397,12 +417,19 @@
             
 
             <h2>Order #{{ order.id}}</h2>
-             <div v-for="carted_dish in carted_dishes">
 
-          <h2 > {{ carted_dish.dish.name }}</h2>
-          <h2> Subtotal: {{ carted_dish.subtotal }}</h2>
+             <div v-for="carted_dish in order.carted_dishes">
 
+          <h2 > Dish: {{ carted_dish.dish.name }}</h2>
           </div>
+
+          <div>
+          <h2 > Subtotal: {{ order.subtotal }}</h2>
+          <h2 > Tax: {{ order.tax }}</h2>
+          <h2 > Total: {{ order.total }}</h2>
+          </div>
+
+          
           </div>
            
         </div>
@@ -416,21 +443,21 @@
 
 
 
- <template id="orders-show-page">
+ <!-- <template id="orders-show-page">
       <div class="vue-component">
         <div >
           <h1>Your order</h1>
           <h2> Order #{{ order.id}}</h2>
-          <div v-for="carted_dish in carted_dishes">
+          <div v-for="carted_dish in carted_dishes"
 
           <h2 > {{ carted_dish.dish.name }}</h2>
           <h2> Subtotal: {{ carted_dish.subtotal }}</h2>
 
           </div>
-         <!-- <h5 class="card-title name">Dish: {{ carted_dish.dish.name }}</h5> -->
+         
          
         </div>
         
 
       </div>
-    </template>
+    </template> -->

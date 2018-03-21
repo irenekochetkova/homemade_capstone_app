@@ -8,4 +8,9 @@ body {
     width: 100px;
   }
 
- 
+ .wrapper {
+    display: flex;
+    max-width: 444px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+  }

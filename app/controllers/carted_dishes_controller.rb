@@ -2,13 +2,15 @@ class CartedDishesController < ApplicationController
 
   def index
 
-    if current_user
+    # if current_user
 
       carted_dishes = current_user.carted_dishes.where(status: "carted")
       render json: carted_dishes.as_json
-    else
-      render json: []
-    end
+    # else
+    #   render json: []
+    # end
+
+
 
   end
 

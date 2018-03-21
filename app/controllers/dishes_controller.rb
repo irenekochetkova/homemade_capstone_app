@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-  # before_action :authenticate_user
+  before_action :authenticate_provider, except: [:index] 
 
 
   def index
@@ -10,12 +10,13 @@ class DishesController < ApplicationController
   def show
 
     dish = Dish.find_by(id: params[:id])
-
     render json: dish.as_json
   end
 
   def create
-    
+
+   
+
     dish = Dish.new(
       name: params[:name],
       price: params[:price],
@@ -25,17 +26,45 @@ class DishesController < ApplicationController
       user_id: current_user.id,
       category_id: params[:category_id]
       )
-    if dish.save
+
+  #   if dish.save 
+  #     render json: dish.as_json
+    
+  #   else
+  #     render json: {errors: dish.errors.full_messages }, status: 422
+
+  #   end
+  # end
+
+
+    if  dish.save 
       render json: dish.as_json
+    
     else
-      render json: {errors: dish.errors.full_messages}, status: 422
+      render json: {errors: dish.errors.full_messages }, status: 422
+
+    end
+
+
+    # if current_user.provider == false 
+    #   render json: {message: "You are not chief"}
+    # elsif current_user.provider == true && dish.save 
+    #   render json: dish.as_json
+    # else
+    #   render json: {errors: dish.errors.full_messages }, status: 422
+
+    # end
+  
 
   end
-end
 
   def update
-    
-    dish = Dish.find_by(id: params[:id]).update(
+
+
+      dish = Dish.find_by(id: params[:id])
+
+     if dish.user == current_user
+      dish.update(
       name: params[:name] || dish.name,
       price: params[:price] || dish.price,
       image_url: params[:image_url] || dish.image_url,
@@ -44,19 +73,32 @@ end
       
       category_id: params[:category_id] || dish.category_id
       )
-    if dish.save
-      render json: dish.as_json
-    else
-      render json: {errors: dish.errors.full_messages}, status: 422
+        if dish.save
 
+        render json: dish.as_json
+     
+        else
+        render json: {errors: dish.errors.full_messages }, status: 422
+       
+        end
+
+     
+      
+   
+      else render json: {errors: "This is not your dish"}, status: 422
+    end
   end
-end
 
   def destroy
-    dish = Dish.find_by(id: params[:id]).delete
+    
+    dish = Dish.find_by(id: params[:id])
+    if  dish.user == current_user
+    dish.destroy
     render json: {message: "Successfully delete dish."}
+    
+    else render json: {errors: "This is not your dish"}, status: 422
+    end
   end
- 
   
 
 end

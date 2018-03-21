@@ -9,7 +9,7 @@ def as_json
     quantity: quantity,
     status: status,
     user: user,
-    subtotal: quantity * (dish.price),
+    # subtotal: quantity * (dish.price),
     dish: dish.as_json
   }
 

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  
+  get "/categories" => "categories#index"
 
   
   
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # home page
   post '/user_token' => 'user_token#create'
-  get "/users/:id" => "users#show"
+  get "/current_user" => "users#show"
   post "/users" => "users#create"
   patch "/users/:id" => "users#update"
   delete "/users/:id" => "users#destroy"
