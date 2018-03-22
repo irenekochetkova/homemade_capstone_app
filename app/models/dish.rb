@@ -29,6 +29,8 @@ class Dish < ApplicationRecord
       user: user,
       user_id: user_id,
       category: category
+      
+
     }
   end
 

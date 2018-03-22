@@ -67,8 +67,9 @@ var ProfileShowPage = {
       currentDish: {},
       users: [],
       categories: [],
-      // titleFilter: "",
-      
+     
+      nameDishFilter: "",
+      // categoryFilter: "",
       current_user: {},
 
       quantity: ""
@@ -102,7 +103,7 @@ methods: {
     console.log(this.currentDish);
   },
   
-
+ 
 
   submit: function() {
       var params = {
@@ -122,18 +123,57 @@ methods: {
           }.bind(this)
         );
         $('#exampleModal').modal('hide');
-    }
- },
+    },
 
- // computed: {
- //  titleFilter() {
- //    return
- //    this.category.filter(post => {
- //      return post.title.toLowerCase().includes(this.search.toLowerCase())
- //    })
- //  }
- // }
-};
+
+
+    // toggleName: function(dish) {
+    //   dish.nameVisible = !dish.nameVisible;
+    // },
+
+    isValidDish: function(dish) {
+      return dish.name.toLowerCase().includes(this.nameDishFilter.toLowerCase());
+       
+      },
+
+    categoryFilter: function(category) {
+      axios.get("http://localhost:3000/dishes").then(function(response) {
+      this.dishes = response.data;
+      if (category !== 'all') {
+        filtedDishes = [];
+        this.dishes.forEach(function(dish) {
+          if (dish.category.id === category.id) { 
+            filtedDishes.push(dish);
+          }
+
+        });
+        this.dishes = filtedDishes;
+      } 
+      
+      console.log(this.dishes); 
+      // console.log(response.data);
+    }.bind(this))
+      
+      }
+},
+
+//     sortedDishes: function(dish) {
+//       var validDish = dish.category.title.includes(this.titleFilter);
+//         if(this.validDish === category.title) {
+          
+//         }
+//         return this.dishes;
+      
+//       }
+    
+
+// //     
+ };
+
+ 
+
+ 
+
 
 var DishesNewPage = {
   template: "#dishes-new-page",

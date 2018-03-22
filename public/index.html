@@ -158,9 +158,8 @@
     <div class="vue-component">
     
     <h2>{{ current_user.first_name }}</h2>    
-   <!--  <h2>{{ contact.email }}</h2>
-    <h2>{{ contact.phone_number }}</h2>
-    <h2>{{ contact.bio }}</h2> -->
+   
+    
   </div>
 </template>
 
@@ -168,24 +167,34 @@
 <template id="dish-index-page">
 
   <div class="vue-component">
+   
+   
+      <!-- Search by cuisine: <input v-model="titleCategoryFilter" list="titles"> -->
 
-  <!--  <div class="wrapper">
-   Search by cuisine: <input v-model="titleFilter" list="titles">
+     <!--  <input type="text" class="form-control" v-model="category_id" list="titles" > -->
+        <!-- <datalist id="titles">
 
-       <datalist id="titles">
-
-           <option v-for="category in categories">{{ category.id + " " + category.title }}</option>
+        <option v-for="category in categories" 
+>{{ category.id + " " + category.title }}</option>
 
         </datalist>
+ -->
+      <button v-for="category in categories" v-on:click="categoryFilter(category)">{{ category.title }}</button>
+      <button v-on:click="categoryFilter('all')">All cuisine</button>
 
-        <transition-group name="slide-left">
+      Search by name of dish: <input v-model="nameDishFilter" >
+
+     
+
+      
+
+  
         
-        </transition-group>
 
-        -->
+       
     
     <div class="row">
-      <div v-for="dish in dishes" class="col-md-4">
+      <div v-for="dish in dishes" class="col-md-4" v-if="isValidDish(dish)" >
         <div class="card mb-2">
           <img class="card-img-top small-img" :src="dish.image_url" alt="Card image cap">
           <div class="card-body">
@@ -254,6 +263,7 @@
     </div>
 
   </div>
+
 
 </template>
 
