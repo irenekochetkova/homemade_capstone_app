@@ -1,4 +1,18 @@
 /* global Vue, VueRouter, axios */
+var HomePage = {
+  template: "#home-page",
+  data: function() {
+    return {
+      message: "Welcome to Vue.js!"
+    };
+  },
+  created: function() {},
+  methods: {},
+  computed: {}
+};
+
+
+
 
 var SignupPage = {
   template: "#signup-page",
@@ -59,6 +73,44 @@ var ProfileShowPage = {
   }
 };
 
+// var CategoriesIndexPage = {
+//   template: "#category-index-page",
+//   data: function() {
+//     return {
+      
+//       categories: []   
+
+      
+//     };
+//   },
+//   created: function() {
+
+//     // axios.get("http://localhost:3000/dishes").then(function(response) {
+//     //   this.dishes = response.data; 
+//     //   // console.log(response.data);
+//     // }.bind(this)),
+//     axios.get("http://localhost:3000/categories").then(function(response) {
+
+//       this.categories = response.data; 
+//       console.log(response.data);
+
+//     }.bind(this));
+//     // axios.get("/current_user" ).then(function(response) {
+//     //   console.log(response.data);
+//     //   this.current_user = response.data;      
+//     // }.bind(this));
+//   },
+
+
+
+ 
+//  };
+
+
+
+
+
+
  var DishesIndexPage = {
   template: "#dish-index-page",
   data: function() {
@@ -69,7 +121,7 @@ var ProfileShowPage = {
       categories: [],
      
       nameDishFilter: "",
-      // categoryFilter: "",
+      
       current_user: {},
 
       quantity: ""
@@ -127,9 +179,13 @@ methods: {
 
 
 
-    // toggleName: function(dish) {
-    //   dish.nameVisible = !dish.nameVisible;
-    // },
+    toggle: function() {
+      var listCategories = document.getElementById('categories');
+      listCategories.classList.toggle('hidden');  
+    },
+
+
+
 
     isValidDish: function(dish) {
       return dish.name.toLowerCase().includes(this.nameDishFilter.toLowerCase());
@@ -157,23 +213,9 @@ methods: {
       }
 },
 
-//     sortedDishes: function(dish) {
-//       var validDish = dish.category.title.includes(this.titleFilter);
-//         if(this.validDish === category.title) {
-          
-//         }
-//         return this.dishes;
-      
-//       }
-    
-
-// //     
+ 
  };
-
  
-
- 
-
 
 var DishesNewPage = {
   template: "#dishes-new-page",
@@ -196,7 +238,7 @@ var DishesNewPage = {
     axios.get("http://localhost:3000/categories").then(function(response) {
 
       this.categories = response.data; 
-      // console.log(response.data);
+      console.log(response.data);
 
     }.bind(this));
   },
@@ -498,7 +540,7 @@ var router = new VueRouter({
     { path: "/carted_dishes", component: CartedDishesIndexPage },
     { path: "/carted_dishes/:id/delete", component: CartedDishesDeletePage },
     { path: "/orders", component: OrdersIndexPage }
-    // { path: "/categories", component: CaPage }
+    // { path: "/categories", component: CategoriesIndexPage }
 
   
     
