@@ -87,14 +87,7 @@
 </body>
 </html>
 
-  <template id="home-page">
-  <div class="vue-component">
-
-    <h1>{{ message }}</h1>
-
-  </div>
-</template>
-
+  
 
 <template id="signup-page">
   <div class="vue-component">
@@ -177,7 +170,10 @@
     <h2>{{ current_user.first_name }}</h2>
 
     <div v-if="current_user.provider === true">   
-      <a  href="/#/dishes/new">New Dish<span class="sr-only">(current)</span></a>
+      <a  href="/#/dishes/new">New Dish<span class="sr-only">(current)</span></a><br>
+      <a  href="/#/">Your Dish<span class="sr-only">(current)</span></a><br>
+      <!-- <a :href="/#/"><button type="button" v-model="currentUserDish()" class="btn btn-secondary">Dishes</button></a> -->
+
     </div>
   </div>
 </template>
@@ -190,33 +186,33 @@
 
 
     
-      <div class="img-top">
+     <div  class="img-top">
 
        <div class="font-top">
         <h3 style="font-size: 50px">Welcome to the world of homemade food</h3>
         <h3 style="font-size: 30px">Are you a chief or a customer?</h3>
-
        </div>
 
        
-        <div align="center"> 
+       <div align="center"> 
         <a href="/#/signup"><button class="button5" >SignUp</button></a>
         <a href="/#/login"><button class="button5">LogIn</button></a>
        </div>
-     
        
-     </div>
+     
 
-
-      
-   
-    
+    <!-- Search form -->
     <div class="input-group">
       <span class="input-group-addon">
         <i class="glyphicon glyphicon-search"></i>
       </span>
-      <input type="text"  class="form-control" placeholder="Search dish" aria-label="Search" v-model="nameDishFilter"/>
+      <input type="text"  class="form-control" placeholder="Search dish here" aria-label="Search" v-model="nameDishFilter"/>
     </div>
+     <!-- end search form -->
+
+</div>
+
+
  
     <!-- Hide cuisine -->
     <div>
@@ -231,28 +227,26 @@
       <br>
       <button type="button" class="btn" v-for="category in categories" v-on:click="categoryFilter(category)">{{ category.title }}</button>
         
-      <div>
-        <button type="button" class="btn " v-on:click="categoryFilter('all')">All cuisine</button>
+      <div align="center">
+        <button  type="button" class="btn" v-on:click="categoryFilter('all')">All cuisine</button>
       </div>
    </div>
  </div>
- <!-- end hide cuisin -->
+ <!-- end hide cuisin -->       
 
-   
+  <div class="row">
 
+    <div v-for="dish in dishes" class="col-md-4">
+      <div v-if="current_user.provider === false || dish.user_id === current_user.id">
+      <!-- <div v-if="current_user.provider === false "> -->
+    <div class="card mb-2">
+   <!-- <div v-for="dish in dishes"> -->
     
-   <!-- Search form -->
-<!-- <div class=" mb-3">
-    <input class="form-control" type="text" placeholder="Search dish" aria-label="Search" v-model="nameDishFilter">
-</div> -->
-
-
-       
-    
-    <div class="row ">
-      <div v-for="dish in dishes" class="col-md-4" v-if="isValidDish(dish)" >
-        <div class="card mb-2">
-          <img class="card-img-top small-img" :src="dish.image_url" alt="Card image cap" style="width:100%">
+      <!-- <div class="mb-2"> -->
+     
+      <div  v-if="isValidDish(dish)" >
+        
+          <img class="card-img-top " :src="dish.image_url" alt="Card image cap" >
           <div class="card-body ">
             <h5 class="card-text name">{{  dish.name }}</h5>
             <p class="card-text price">Price: {{  dish.price }}</p>
@@ -263,10 +257,13 @@
              <a v-on:click="setCurrentDish(dish)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">More info</a>
            </div>
           </div>
-        </div>
-      </div>
+        <!-- </div> -->
+      <!-- </div> -->
     </div>
-
+  </div>
+  </div>
+ </div>
+</div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -288,8 +285,9 @@
 
           <div class="modal-footer">
 
-          
 
+          <form class="form-inline">
+    
  
 
       <div v-if="currentDish.user_id == current_user.id">
@@ -297,17 +295,20 @@
            
       <a :href="'/#/dishes/' + currentDish.id + '/delete'"><button type="button" class="btn btn-secondary">Delete Dish</button></a>
     </div>
-  </div>
+ <!--  </div>
 
-    <div class="modal-footer">
+    <div class="modal-footer"> -->
+      <div v-if="current_user.provider === false" >
+      
+       
+       <!--  <label >Quantity:</label>  -->
+        <input  type="number"  v-model="quantity" placeholder="Input quantity here">
+      
 
-      <div class="form-group">
-        <label>Quantity:</label> 
-        <input type="number" class="form-control" v-model="quantity">
-      </div>  
-
-      <a href="/#/carted_dishes/new"><button v-on:click="submit()" type="button" class="btn btn-secondary">Add to cart</button></a>                                                        
-
+      <a href="/#/carted_dishes/new"><button v-on:click="submit()" type="button" class="btn btn-secondary">Add to cart</button></a> 
+     
+    </div>                                                     
+</form>
          
             </div>
 
@@ -317,8 +318,9 @@
             </div>
       </div>
     </div>
-
-  </div>
+   <!-- </div> -->
+  <!-- </div> -->
+</div>
 
 
 </template>

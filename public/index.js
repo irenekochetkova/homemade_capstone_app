@@ -1,17 +1,4 @@
 /* global Vue, VueRouter, axios */
-var HomePage = {
-  template: "#home-page",
-  data: function() {
-    return {
-      message: "Welcome to Vue.js!"
-    };
-  },
-  created: function() {},
-  methods: {},
-  computed: {}
-};
-
-
 
 
 var SignupPage = {
@@ -62,54 +49,45 @@ var ProfileShowPage = {
   data: function() {
     return {
       current_user: {}
+       // userDishes: []
 
     };
   },
+
   created: function() {
     axios.get("/current_user/").then(function(response) {
       console.log(response.data);
       this.current_user = response.data;
     }.bind(this));
-  }
-};
+    // axios.get("http://localhost:3000/dishes").then(function(response) {
+    //   console.log(response.data);
+    //   this.dishes = response.data;
+    // }.bind(this));
+  },
 
-// var CategoriesIndexPage = {
-//   template: "#category-index-page",
-//   data: function() {
-//     return {
+
+// methods: {
+//   currentUserDish: function(dish) {
+//       axios.get("http://localhost:3000/dishes").then(function(response) {
+//       this.dishes = response.data;
+//         userDishes = [];
+//         this.dishes.forEach(function(dish) {
+//           if (dish.user_id === this.current_user.id) { 
+//             userDishes.push(dish);
+//           }
+
+//         });
+//         this.dishes = userDishes;
       
-//       categories: []   
-
       
-//     };
-//   },
-//   created: function() {
-
-//     // axios.get("http://localhost:3000/dishes").then(function(response) {
-//     //   this.dishes = response.data; 
-//     //   // console.log(response.data);
-//     // }.bind(this)),
-//     axios.get("http://localhost:3000/categories").then(function(response) {
-
-//       this.categories = response.data; 
-//       console.log(response.data);
-
+//       console.log(this.dishes); 
+//       // console.log(response.data);
 //     }.bind(this));
-//     // axios.get("/current_user" ).then(function(response) {
-//     //   console.log(response.data);
-//     //   this.current_user = response.data;      
-//     // }.bind(this));
-//   },
-
-
-
- 
-//  };
-
-
-
-
-
+      
+//       }
+// },
+};
+// 
 
  var DishesIndexPage = {
   template: "#dish-index-page",
@@ -123,7 +101,7 @@ var ProfileShowPage = {
       nameDishFilter: "",
       
       current_user: {},
-
+     
       quantity: ""
      
 
@@ -160,8 +138,8 @@ methods: {
   submit: function() {
       var params = {
         quantity: this.quantity,
-        dish_id:  this.currentDish.id,
-        status     
+        dish_id:  this.currentDish.id
+        // status     
       };
       axios
         .post("/carted_dishes", params)
@@ -184,6 +162,7 @@ methods: {
       listCategories.classList.toggle('hidden');  
     },
 
+    
 
 
 
@@ -212,6 +191,11 @@ methods: {
       
       }
 },
+// computed: {
+//   visibleDish: function(dish) {
+//     user.provider === false || dish.user_id === current_user.id
+//   }
+// }
 
  
  };

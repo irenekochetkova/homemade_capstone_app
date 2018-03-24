@@ -5,7 +5,8 @@
 
 .small-img {
     display:block;
-    width: 100px;
+    /*width: 200px;*/
+    width:100%;
   }
 .wrapper {
   padding: 1px;
@@ -36,16 +37,20 @@
 
 .cuisine {
   padding: 10px;
-  /*margin: 0 auto;*/
+  margin: 0 auto;
+  text-align: center;
+  font-family: Cardo;
+  font-size: 20px;
+
   
 }
 
  
  .img-top {
     
-    padding: 200px;
+    padding: 150px;
     margin: 0 auto;
-    background: url(pexels-photo-616404.jpeg);
+    background: url(top_picture.jpeg);
     background-repeat: no-repeat;
     background-size: 1000px 600px;
 
@@ -59,11 +64,7 @@
     text-align: center;
     margin: 20px 0;
     padding: 0 30px;
-    /* margin-top: 5px;
-    margin-bottom: 1px;
-    margin-right: 1px;
-    margin-left: 1px;
-  */
+   
   }
 
   .size-font {
@@ -78,13 +79,36 @@
     padding: 7px 32px;
     text-align: center;
     text-decoration: none;
-   
     font-size: 1.2em;
-    
     transition-duration: 0.4s;
-    /*cursor: pointer;*/
     background-color: transparent; 
-    
     border: 2px solid #4CAF50;
     margin: 30px;
 }
+
+ .section-search {
+    padding: 200px;
+    margin: 0 auto;
+    background-color: transparent; 
+ }
+
+
+ .card {
+  
+  /*display:block;
+  margin: auto, auto, auto, auto;
+  border: solid*/
+ 
+}
+/*.card-deck {
+
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 1200px;
+  
+  border-bottom: none;
+}*/
+
+
+
+
