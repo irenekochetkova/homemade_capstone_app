@@ -172,7 +172,7 @@
     <div v-if="current_user.provider === true">   
       <a  href="/#/dishes/new">New Dish<span class="sr-only">(current)</span></a><br>
       <a  href="/#/">Your Dish<span class="sr-only">(current)</span></a><br>
-      <!-- <a :href="/#/"><button type="button" v-model="currentUserDish()" class="btn btn-secondary">Dishes</button></a> -->
+     <!--  <a :href="/#/"><button type="button" v-model="currentUserDish()" class="btn btn-secondary">Dishes</button></a> -->
 
     </div>
   </div>
@@ -218,21 +218,30 @@
     <div>
      <div class="cuisine">
        <button v-on:click="toggle()">Choose cuisine here</button>
-     </div>
+       <br>
+       <br>
+     
+
+
+
     
 
    <div class="hidden" id="categories">
-      <br>
+      <!-- <br> -->
         <hr class="seprt">
-      <br>
+      <!-- <br> -->
       <button type="button" class="btn" v-for="category in categories" v-on:click="categoryFilter(category)">{{ category.title }}</button>
         
       <div align="center">
         <button  type="button" class="btn" v-on:click="categoryFilter('all')">All cuisine</button>
+        <br>
+        <br>
       </div>
    </div>
+  </div>
  </div>
- <!-- end hide cuisin -->       
+ <!-- end hide cuisin -->  
+ <div class="card-deck">     
 
   <div class="row">
 
@@ -240,15 +249,14 @@
       <div v-if="current_user.provider === false || dish.user_id === current_user.id">
       <!-- <div v-if="current_user.provider === false "> -->
     <div class="card mb-2">
-   <!-- <div v-for="dish in dishes"> -->
-    
-      <!-- <div class="mb-2"> -->
-     
+   
       <div  v-if="isValidDish(dish)" >
+        <h5 align="center" class="card-text-header name">{{  dish.name }}</h5>
         
           <img class="card-img-top " :src="dish.image_url" alt="Card image cap" >
           <div class="card-body ">
-            <h5 class="card-text name">{{  dish.name }}</h5>
+            <!-- <h5 class="card-text name">{{  dish.name }}</h5> -->
+
             <p class="card-text price">Price: {{  dish.price }}</p>
             <p class="card-text name">Chief: {{  dish.user.first_name }}</p>
             <p class="card-text name">Cuisine: {{  dish.category.title }}</p>
@@ -258,7 +266,7 @@
            </div>
           </div>
         <!-- </div> -->
-      <!-- </div> -->
+      </div>
     </div>
   </div>
   </div>
@@ -266,7 +274,7 @@
 </div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">{{ currentDish.name }}</h5>
@@ -277,8 +285,8 @@
           </div>
           <div class="modal-body">
             <img class="small-img" :src="currentDish.image_url" alt="Card image cap">
-            <p> {{ currentDish.price }}</p>
-            <p> {{ currentDish.description }}</p>
+            <!-- <p> {{ currentDish.price }}</p> -->
+            <p> Description: {{ currentDish.description }}</p>
             <!-- <p> Chief: {{ currentDish.user}}</p> -->
            
           </div>
@@ -302,7 +310,7 @@
       
        
        <!--  <label >Quantity:</label>  -->
-        <input  type="number"  v-model="quantity" placeholder="Input quantity here">
+        <input  type="number"  v-model="quantity" placeholder="Quantity">
       
 
       <a href="/#/carted_dishes/new"><button v-on:click="submit()" type="button" class="btn btn-secondary">Add to cart</button></a> 
@@ -328,25 +336,26 @@
 <template  id="dishes-new-page">
   <div class="vue-component">
 
-    <div class="container">
+    <div class="container back-image">
+      <div class="edit-page ">
       <h1>New Dish</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-      <div class="form-group">
+      <div class="form-group edit-font">
         <label>Name:</label> 
         <input type="text" class="form-control" v-model="name">
       </div>
-      <div class="form-group">
+      <div class="form-group edit-font">
         <label>Price:</label>
         <input type="decimal" class="form-control" v-model="price">
       </div>
-      <div class="form-group">
+      <div class="form-group edit-font">
         <label>Description:</label>
         <input type="text" class="form-control" v-model="description">
       </div>
 
-
+     <div class="edit-font">
       <label>Cuisine:</label>
 
       <div class="form-group" >
@@ -358,42 +367,46 @@
 
         </datalist>
       </div>
+     </div>
 
-
-      <div class="form-group">
+      <div class="form-group edit-font">
         <label>Image:</label>
         <input type="text" class="form-control" v-model="image_url">
       </div>
            
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
-
+</div>
   </div>
 </template>
 
 <template id="dishes-edit-page">
-  <div class="container">
+
+  <div class="vue-component ">
+
+  <div class="container back-image">
+    <div class="edit-page ">
     <h1>Edit Dish</h1>
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
-      <div class="form-group">
+      <div class="form-group edit-font">
         <label>Name:</label> 
         <input type="text" class="form-control" v-model="name">
       </div>
-      <div class="form-group">
+      <div class="form-group edit-font">
         <label>Price:</label>
         <input type="decimal" class="form-control" v-model="price">
       </div>
-      <div class="form-group">
+      <div class="form-group edit-font">
         <label>Description:</label>
         <input type="text" class="form-control" v-model="description">
       </div>
 
-
+      <div class="edit-font">  
       <label>Cuisine:</label>
 
-      <div class="form-group" >
+      <div class="form-group edit-font" >
        
          <input type="text" class="form-control" v-model="category_id" list="titles" >
         <datalist id="titles">
@@ -401,19 +414,21 @@
            <option v-for="category in categories">{{ category.id + " " + category.title }}</option>
 
         </datalist>
-
+</div>
 
       </div>
 
 
-      <div class="form-group">
+      <div class="form-group edit-font">
         <label>Image:</label>
         <input type="text" class="form-control" v-model="image_url">
       </div>
 
       
- <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+ <button class="btn btn-primary edit-font" v-on:click="submit()">Submit</button>
   </div>
+</div>
+</div>
 </template>
 
 
@@ -421,7 +436,6 @@
 <template id="dishes-delete-page">
   <div class="vue-component">
 
-    <!-- <a href="/#/">Back to all dishes</a> -->
 
   </div>
 </template>
@@ -434,28 +448,36 @@
  
 
   <div class="vue-component">
- 
-      <div v-for="carted_dish in carted_dishes"  class="col-md-4">
-        <div class="card mb-2">
-        
-          <div class="card-body" >
+   <table class="table" >      
+       <table id="customers" >
+        <thead>
+         <tr>
+          <th>Dish</th>
+          <th>Price</th> 
+          <th>Quantity</th>
+          <th>Subtotal</th>
+          <th>Status</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="carted_dish in carted_dishes">
+          <td >{{ carted_dish.dish.name }}</td>
+          <td>{{  carted_dish.dish.price }}</td>
+          <td>{{  carted_dish.quantity }}</td>
+          <td>{{  carted_dish.subtotal_carted }}</td>
+          <td>{{  carted_dish.status }}</td>
+          <td><a :href="'/#/carted_dishes/' + carted_dish.id + '/delete'"><button type="button" class="btn-remove" ><i class="fa fa-trash"></i></button></a></td>
 
-            <img class="small-img" :src="carted_dish.dish.image_url" alt="">
-            
-             <h5 class="card-title name">Dish: {{ carted_dish.dish.name }}</h5>
-             <p class="card-text first_name">Customer: {{  carted_dish.user.first_name }}</p>
-             <p class="number">Quantity: {{  carted_dish.quantity }}</p>
-             <p class="number">Price: {{  carted_dish.dish.price }}</p>
-             <!-- <p class="number">Subtotal: {{  carted_dish.subtotal }}</p>  -->
-
-             <p class="card-text status">Status: {{  carted_dish.status }}</p>     
-            
-          </div>
-           <a :href="'/#/carted_dishes/' + carted_dish.id + '/delete'"><button type="button" class="btn btn-secondary">Delete</button></a>
-        </div>
+          
+        </tr>
+       </tbody>
        
-      </div>
-      <button class="btn btn-primary" v-on:click="checkout()">Checkout</button>
+      </table>
+    </table>
+
+        <button class="btn-checkout pull-right"  v-on:click="checkout()">Checkout</button>
+      </div>  
    </div>        
     
 </template>
@@ -475,30 +497,30 @@
 
   <div class="vue-component">
 <h1>Your orders</h1>
-   
-      <div v-for="order in orders"  class="col-md-4">
-
-        <div class="card mb-2">
-        
-          <div class="card-body" >
-
-            
-
-            <h2>Order #{{ order.id}}</h2>
-
-             <div v-for="carted_dish in order.carted_dishes">
-
-          <h2 > Dish: {{ carted_dish.dish.name }}</h2>
-          </div>
-
-          <div>
-          <h2 > Subtotal: {{ order.subtotal }}</h2>
-          <h2 > Tax: {{ order.tax }}</h2>
-          <h2 > Total: {{ order.total }}</h2>
-          </div>
+ <table class="table" >   
+    <table id="customers">
+        <thead>
+         <tr>
+          <th>Order</th>
+          <th>Subtotal</th>
+          <th>Tax</th>
+          <th>Total</th>
+          <th>Cancel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="order in orders">
+          <td> #{{ order.id }}</td>
+          <td>{{ order.subtotal }}</td>
+          <td>{{ order.tax }}</td>
+          <td>{{ order.total }}</td>
+          <td><a :href="'/#/orders/' + order.id + '/delete'"><button type="button" class="btn-remove" ><i class="fa fa-trash"></i></button></a></td>
 
           
-          </div>
+        </tr>
+       </tbody>
+       </table>
+     </table>
            
         </div>
       </div>
@@ -511,21 +533,12 @@
 
 
 
- <!-- <template id="orders-show-page">
-      <div class="vue-component">
-        <div >
-          <h1>Your order</h1>
-          <h2> Order #{{ order.id}}</h2>
-          <div v-for="carted_dish in carted_dishes"
+ <template id="orders-delete-page">
+  <div class="vue-component">
 
-          <h2 > {{ carted_dish.dish.name }}</h2>
-          <h2> Subtotal: {{ carted_dish.subtotal }}</h2>
 
-          </div>
-         
-         
-        </div>
-        
+    <a href="/#/orders">Back to orders</a>
 
-      </div>
-    </template> -->
+  </div>
+
+</template>

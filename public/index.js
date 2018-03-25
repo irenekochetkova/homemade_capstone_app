@@ -399,7 +399,7 @@ var CartedDishesIndexPage = {
 
       carted_dishes: [],
       dishes: [],
-     
+      
       errors: []
       
     };
@@ -425,7 +425,7 @@ var CartedDishesIndexPage = {
         axios
           .post("/orders", params)
           .then(function(response) {
-            router.push("/");
+            router.push("/orders");
           })
           .catch(
             function(error) {
@@ -436,7 +436,9 @@ var CartedDishesIndexPage = {
       }
   },
   
- 
+ computed: {
+  
+ }
      
 };
 
@@ -448,7 +450,7 @@ var CartedDishesDeletePage = {
     };
   },
   created: function() {
-     $('#exampleModal').modal('hide');
+     // $('#exampleModal').modal('hide');
     axios.delete("/carted_dishes/" + this.$route.params.id).then(function(response) {
       console.log(response.data);
       this.carted_dish = response.data.delete;
@@ -457,25 +459,7 @@ var CartedDishesDeletePage = {
 };
 
 
-// var OrdersShowPage = {
-//   template: "#orders-show-page",
-//   data: function() {
-//     return {
-//       order: {},
-//       dishes: [],
-//       carted_dishes: []
-//     };
-//   },
-//   created: function() {
-//     axios.get("/orders/" + this.$route.params.id).then(function(response) {
-//       console.log(response.data);
-//       this.order = response.data; 
-//       this.carted_dishes = this.order["carted_dishes"]
-//     // console.log(carted_dishes);     
-//     }.bind(this));
-    
-//   }
-// };
+
 
 var OrdersIndexPage = {
   template: "#orders-index-page",
@@ -507,6 +491,31 @@ var OrdersIndexPage = {
      
 };
 
+var OrdersDeletePage = {
+  template: "#orders-delete-page",
+  data: function() {
+    return {
+      order: {},
+       error: []
+    };
+  },
+  created: function() {
+  
+    axios.delete("/orders/" + this.$route.params.id).then(function(response) {
+      // console.log(response.data);
+
+      this.order = response.data.delete;
+
+      router.push("/orders");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+
+            router.push("/");
+    }.bind(this));
+  }
+};
 
 
 
@@ -523,8 +532,8 @@ var router = new VueRouter({
     { path: "/dishes/:id/delete", component: DishesDeletePage },
     { path: "/carted_dishes", component: CartedDishesIndexPage },
     { path: "/carted_dishes/:id/delete", component: CartedDishesDeletePage },
-    { path: "/orders", component: OrdersIndexPage }
-    // { path: "/categories", component: CategoriesIndexPage }
+    { path: "/orders", component: OrdersIndexPage },
+    { path: "/orders/:id/delete", component: OrdersDeletePage }
 
   
     

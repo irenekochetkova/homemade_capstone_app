@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
 
     order = Order.new(
       user_id: current_user.id,
-  
+
       subtotal: subtotal,
       tax: tax,
       total: total
@@ -52,5 +52,12 @@ class OrdersController < ApplicationController
       render json: {errors: order.errors.full_messages}, status: 422
     end
   end
+
+  def destroy
+    order = Order.find_by(id: params[:id])
+    
+    order.destroy
+    render json: {status: "Carted dish successfully removed!"}
+  end 
 
 end

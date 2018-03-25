@@ -1,13 +1,20 @@
-/*body {
+body {
   font-family: Futura, sans-serif;
-  background-image: url('retina_wood.png');
-}*/
+  background-image: url('light-veneer.png');
+}
 
 .small-img {
     display:block;
     /*width: 200px;*/
     width:100%;
   }
+
+.image-left {
+    display:block;
+    width:50px;
+    height: 50px;
+}
+
 .wrapper {
   padding: 1px;
   margin: 0 auto;
@@ -35,16 +42,16 @@
   
 }
 
+
+
 .cuisine {
-  padding: 10px;
+  padding: 1px;
   margin: 0 auto;
   text-align: center;
   font-family: Cardo;
   font-size: 20px;
-
   
 }
-
  
  .img-top {
     
@@ -53,10 +60,12 @@
     background: url(top_picture.jpeg);
     background-repeat: no-repeat;
     background-size: 1000px 600px;
-
-
 }
 
+.card-img-top {
+    height: 17rem;
+    /*object-fit: cover;*/
+}
 
 .font-top {
  
@@ -70,7 +79,6 @@
   .size-font {
      font-size: 50px;
   }
-
 
   .button5 {
     background-color: #4CAF50; 
@@ -92,23 +100,82 @@
     background-color: transparent; 
  }
 
+.card-text-header {
+     font-size: 20px;
+  }
 
- .card {
-  
-  /*display:block;
-  margin: auto, auto, auto, auto;
-  border: solid*/
- 
+.edit-page {
+  /*background-image: url('for_new_dish.jpg');*/
+  width: 50%;
+  color: white;
+  padding: 80px;
+  margin: 0px;
+  font-family: Cardo;
+
+
+ }
+.back-image {
+  background-image: url('for_new_dish.jpg');
+   display:block;
+   background-size: 800px 800px;
+   background-repeat: no-repeat;
+   margin: 20px auto;
+
+    /*background-size: cover;*/
+
 }
-/*.card-deck {
+.edit-font {
+  font-size: 20px;
+}
 
-  padding: 30px;
-  margin: 0 auto;
-  max-width: 1200px;
+.img-carted {
+     width: 2px;
+     height: 100%;
+    
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    /*background-color: white;*/
+}
+
+#customers tr:nth-child(even){background-color: lemonchiffon;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-remove {
+    /*background-color: DodgerBlue;*/
+    border: none;
+    color: black;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: transparent; 
+}
+
+.btn-checkout {
   
-  border-bottom: none;
-}*/
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  background-color: wheat;
+  color: white;
+   /*padding-top: 12px;*/
+    width: 100%;
+    font-size: 16px;
 
-
-
-
+}
