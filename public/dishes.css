@@ -1,7 +1,14 @@
 body {
-  font-family: Futura, sans-serif;
+  /*font-family: Futura, sans-serif;*/
   background-image: url('light-veneer.png');
 }
+
+
+
+/*#nav_bar {
+  background-color: green;
+  order-color: black;
+}*/
 
 .small-img {
     display:block;
@@ -59,7 +66,7 @@ body {
     margin: 0 auto;
     background: url(top_picture.jpeg);
     background-repeat: no-repeat;
-    background-size: 1000px 600px;
+    background-size: 100% 600px;
 }
 
 .card-img-top {
