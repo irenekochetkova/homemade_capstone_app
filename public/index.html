@@ -1,13 +1,25 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
   <head>
+   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css?family=Pirata+One" rel="stylesheet" type="text/css">
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hub - Bootstrap 4 Ecommerce Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
-    <!-- Bootstrap CSS-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="dishes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+    <title>Dishes Index</title>
+   
+
+    <!-- from theme -->
     <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
@@ -33,23 +45,53 @@
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- end from theme -->
 
-        <!-- from Cheat Sheet -->
-       <!--  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.js"></script>
-        <script src="index.js" defer></script> -->
-        <!-- end Cheet Sheet -->
 
-    <link rel="stylesheet" href="index.css">
+ 
   </head>
 
+  <body >
+  <div id="vue-app">
+   <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/#/">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+     <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/#/"><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/#/">Menu</a>
+        </li>
 
-  <body>
-   <div id="vue-app">
+        
+        <li class="nav-item">
+        <a class="nav-link" href="/#/current_user/">My account</a>
 
-    <!-- navbar /header/-->
-    <header class="header">
+        </li>
+
+        <li class="nav-item">
+         <a class="dropdown-item" href="/#/signup">SignUp</a>
+        </li>
+        <li class="nav-item">
+           <a class="dropdown-item" href="/#/login">LogIn</a>
+        </li>
+        <li class="nav-item">
+           <a class="dropdown-item" href="/#/logout">LogOut</a>
+        </li>
+       
+      </ul>
+     </div>
+   </nav> -->
+
+  
+   
+
+    <!-- header from theme -->
+   <header class="header">
       <!-- Tob Bar-->
       <div class="top-bar">
         <div class="container-fluid">
@@ -86,24 +128,30 @@
           </div>
         </div>
         <div class="container-fluid">  
-          <!-- Navbar Header  --><a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="..."></a>
+          <!-- Navbar Header  -->
+          <!-- <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="..."></a>  -->
+
+           <p><span class="glyphicons glyphicons-plate-of-food"></span></p>
+
+         
           <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
           <!-- Navbar Collapse -->
           <div id="navbarCollapse" class="collapse navbar-collapse">
             <ul class="navbar-nav mx-auto">
-              <li class="nav-item"><a href="index.html" class="nav-link active">Home</a>
+              <li class="nav-item"><a href="/#/" class="nav-link active nav-font">Home</a>
               </li>
-              <li class="nav-item"><a href="category.html" class="nav-link">Shop</a>
+              <li class="nav-item"><a href="/#/" class="nav-link nav-font">Menu</a>
               </li>
+
               <!-- Megamenu-->
-              <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link">Template<i class="fa fa-angle-down"></i></a>
+             <!--  <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link nav-font">Shop<i class="fa fa-angle-down"></i></a>
                 <div class="dropdown-menu megamenu">
                   <div class="row">
                     <div class="col-lg-9">
                       <div class="row">
                         <div class="col-lg-3"><strong class="text-uppercase">Home</strong>
                           <ul class="list-unstyled">
-                            <li><a href="index.html">Homepage 1</a></li>
+                            <li><a href="/#/crrent_user">Homepage 1</a></li>
                           </ul><strong class="text-uppercase">Shop</strong>
                           <ul class="list-unstyled">                                                   
                             <li><a href="category.html">Category - left sidebar</a></li>
@@ -185,10 +233,10 @@
                     </div>
                   </div>
                 </div>
-              </li>
+              </li> -->
               <!-- /Megamenu end-->
               <!-- Multi level dropdown    -->
-              <li class="nav-item dropdown"><a id="navbarDropdownMenuLink" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">Dropdown<i class="fa fa-angle-down"></i></a>
+              <!-- <li class="nav-item dropdown"><a id="navbarDropdownMenuLink" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">Dropdown<i class="fa fa-angle-down"></i></a>
                 <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
                   <li><a href="#" class="dropdown-item">Action</a></li>
                   <li><a href="#" class="dropdown-item">Another action</a></li>
@@ -209,399 +257,64 @@
                     </ul>
                   </li>
                 </ul>
-              </li>
+              </li> -->
               <!-- Multi level dropdown end-->
-              <li class="nav-item"><a href="blog.html" class="nav-link">Blog </a>
+              <li class="nav-item"><a href="#" class="nav-link nav-font">Feedback </a>
               </li>
-              <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a>
+              <li class="nav-item"><a href="#" class="nav-link nav-font">Contact</a>
+              </li>
+              <li class="nav-item"><a href="/#/signup" class="nav-link">SignUp</a>
+              </li>
+              <li class="nav-item"><a href="/#/login" class="nav-link">LogIn</a>
+              </li>
+               <li class="nav-item"><a href="/#/logout" class="nav-link">Logout</a>
               </li>
             </ul>
             <div class="right-col d-flex align-items-lg-center flex-column flex-lg-row">
               <!-- Search Button-->
               <div class="search"><i class="icon-search"></i></div>
               <!-- User Not Logged - link to login page-->
-              <div class="user"> <a id="userdetails" href="customer-login.html" class="user-link"><i class="icon-profile">                   </i></a></div>
+              <div class="user btn-lg"  > <a id="userdetails" href="/#/current_user" class="user-link"><i class="icon-profile">                   </i></a></div>
+              <div class="cart btn-lg" > <a id="cartdetails" href="/#/carted_dishes" class="cart-link"><i class="icon-cart" >                   </i></a></div>
+
               <!-- Cart Dropdown-->
-              <div class="cart dropdown show"><a id="cartdetails" href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="icon-cart"></i>
-                  <div class="cart-no">1</div></a><a href="cart.html" class="text-primary view-cart">View Cart</a>
-                <div aria-labelledby="cartdetails" class="dropdown-menu">
+              <!-- <div href="/#/carted_dishes"  ><i class="icon-cart"></i> -->
+                
+
+                  <!-- <div class=""></div></a><a href="/#/carted_dishes" class="text-primary view-cart">View Cart</a> -->
+                <!-- <div aria-labelledby="cartdetails" class="dropdown-menu"> -->
                   <!-- cart item-->
-                  <div class="dropdown-item cart-product">
-                    <div class="d-flex align-items-center">
-                      <div class="img"><img src="img/hoodie-man-1.png" alt="..." class="img-fluid"></div>
-                      <div class="details d-flex justify-content-between">
+                   <!-- <div class="dropdown-item cart-product"> -->
+                    <!-- <div class="d-flex align-items-center"> -->
+                      <!-- <div class="img"><img src="img/hoodie-man-1.png" alt="..." class="img-fluid"></div> -->
+                      <!-- <div class="details d-flex justify-content-between">
                         <div class="text"> <a href="#"><strong>Heather Gray Hoodie</strong></a><small>Quantity: 1 </small><span class="price">$75.00 </span></div><a href="#" class="delete"><i class="fa fa-trash-o"></i></a>
-                      </div>
-                    </div>
-                  </div>
+                      </div> -->
+                   <!--  </div> -->
+                  <!-- </div> -->
                   <!-- total price-->
-                  <div class="dropdown-item total-price d-flex justify-content-between"><span>Total</span><strong class="text-primary">$75.00</strong></div>
+                  <!-- <div class="dropdown-item total-price d-flex justify-content-between"><span>Total</span><strong class="text-primary">$75.00</strong></div> -->
                   <!-- call to actions-->
-                  <div class="dropdown-item CTA d-flex"><a href="cart.html" class="btn btn-template wide">View Cart</a><a href="checkout1.html" class="btn btn-template wide">Checkout</a></div>
-                </div>
-              </div>
+                  <!-- <div class="dropdown-item CTA d-flex"><a href="cart.html" class="btn btn-template wide">View Cart</a><a href="checkout1.html" class="btn btn-template wide">Checkout</a></div> -->
+                <!-- </div>  -->
+              <!-- </div> -->
             </div>
           </div>
         </div>
       </nav>
     </header>
-    <!-- Hero Section-->
-    <section class="hero hero-home no-padding">
-      <!-- Hero Slider-->
-      <div class="owl-carousel owl-theme hero-slider">
-        <div style="background: url(img/hero-bg.jpg);" class="item d-flex align-items-center has-pattern">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6">
-                <h1>Hub</h1>
-                <ul class="lead"> 
-                  <li><strong>Bootstrap 4 E-commerce</strong> template</li>
-                  <li><strong>24</strong> pages, <strong>6</strong> colour variants</li>
-                  <li><strong>SCSS</strong> sources </li>
-                  <li>frequent & <strong>free updates</strong></li>
-                </ul><a href="#" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag"> </i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="background: url(img/hero-bg-2.jpg);" class="item d-flex align-items-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6 text-white">
-                <h1>Labore et dolore magna aliqua</h1>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag">  </i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div style="background: url(img/hero-bg-3.jpg);" class="item d-flex align-items-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-6 text-white">
-                <h1>Sed do eiusmod tempor</h1>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag">           </i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Categories Section-->
-    <section class="categories">
-      <div class="container">
-        <header class="text-center">
-          <h2 class="text-uppercase"><small>Top for this month</small>Our Featured Picks</h2>
-        </header>
-        <div class="row text-left">
-          <div class="col-lg-4"><a href="#">
-              <div style="background-image: url(img/banner-1.jpg);" class="item d-flex align-items-end">
-                <div class="content">
-                  <h3 class="h5">Men's</h3><span>New Collection</span>
-                </div>
-              </div></a></div>
-          <div class="col-lg-4"><a href="#">
-              <div style="background-image: url(img/banner-2.jpg);" class="item d-flex align-items-end">
-                <div class="content">
-                  <h3 class="h5">Women's</h3><span>New Collection</span>
-                </div>
-              </div></a></div>
-          <div class="col-lg-4"><a href="#">
-              <div style="background-image: url(img/banner-3.jpg);" class="item d-flex align-items-end">
-                <div class="content">
-                  <h3 class="h5">Accessories</h3><span>Sale of 20%</span>
-                </div>
-              </div></a></div>
-        </div>
-      </div>
-    </section>
-    <!-- Men's Collection -->
-    <section class="men-collection gray-bg">
-      <div class="container">
-        <header class="text-center">
-          <h2 class="text-uppercase"><small>Autumn Choice</small>Men Collection</h2>
-        </header>
-        <!-- Products Slider-->
-        <div class="owl-carousel owl-theme products-slider">
-          <!-- item-->
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-man-1.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Lake</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-man-2.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Blue</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-man-3.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Black</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-man-4.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Gray</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-man-1.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Lake</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-man-2.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Blue</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Divider Section-->
-    <section style="background: url(img/divider-bg.jpg);" class="divider">
-      <div class="container"> 
-        <div class="row">
-          <div class="col-lg-6">
-            <p>Old Collection                  </p>
-            <h2 class="h1 text-uppercase no-margin">Huge Sales</h2>
-            <p>At our outlet stores</p><a href="#" class="btn btn-template wide shop-now">Shop Now<i class="icon-bag"></i></a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Women's Collection -->
-    <section class="women-collection">
-      <div class="container">
-        <header class="text-center">
-          <h2 class="text-uppercase"><small>Ladies' Time</small>Women Collection</h2>
-        </header>
-        <!-- Products Slider-->
-        <div class="owl-carousel owl-theme products-slider">
-          <!-- item-->
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-woman-1.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Gray</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-woman-2.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Black</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-woman-3.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Blue</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-woman-4.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Lake</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-woman-1.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Gray</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="product is-gray">
-              <div class="image d-flex align-items-center justify-content-center"><img src="img/hoodie-woman-2.png" alt="product" class="img-fluid">
-                <div class="hover-overlay d-flex align-items-center justify-content-center">
-                  <div class="CTA d-flex align-items-center justify-content-center"><a href="#" class="add-to-cart"><i class="fa fa-shopping-cart"></i></a><a href="detail.html" class="visit-product active"><i class="icon-search"></i>View</a><a href="#" data-toggle="modal" data-target="#exampleModal" class="quick-view"><i class="fa fa-arrows-alt"></i></a></div>
-                </div>
-              </div>
-              <div class="title"><a href="detail.html">
-                  <h3 class="h6 text-uppercase no-margin-bottom">Elegant Black</h3></a><span class="price text-muted">$40.00</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Blog Section-->
-    <section class="blog gray-bg">
-      <div class="container">
-        <header class="text-center">
-          <h2 class="text-uppercase"><small>Made it hard way</small>Latest from the blog</h2>
-        </header>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="post d-flex align-items-center flex-md-row flex-column">
-              <div class="thumbnail d-flex-align-items-center justify-content-center"><img src="img/blog-1.jpg" alt="..."></div>
-              <div class="info"> 
-                <h4 class="h5"> <a href="post.html">Egestas mus a mus rhoncus adipiscing iaculis facolisis             </a></h4><span class="date"><i class="fa fa-clock-o"></i>May 10th 2016</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p><a href="post.html" class="read-more">Read More<i class="fa fa-long-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="post d-flex align-items-center flex-md-row flex-column">
-              <div class="thumbnail d-flex-align-items-center justify-content-center"><img src="img/blog-2.jpg" alt="..."></div>
-              <div class="info"> 
-                <h4 class="h5"> <a href="post.html">Egestas mus a mus rhoncus adipiscing iaculis facolisis           </a></h4><span class="date"><i class="fa fa-clock-o"></i>May 10th 2016</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p><a href="post.html" class="read-more">Read More<i class="fa fa-long-arrow-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Brands Section-->
-    <section class="brands">
-      <div class="container">
-        <!-- Brands Slider-->
-        <div class="owl-carousel owl-theme brands-slider">
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-1.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-2.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-3.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-4.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-5.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-6.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-1.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-2.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-3.svg" alt="..." class="img-fluid"></div>
-          </div>
-          <!-- item-->
-          <div class="item d-flex align-items-center justify-content-center">
-            <div class="brand d-flex align-items-center"><img src="img/brand-4.svg" alt="..." class="img-fluid"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Overview Popup    -->
-    <div id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade overview">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content">
-          <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true"><i class="icon-close"></i></span></button>
-          <div class="modal-body"> 
-            <div class="ribbon-primary text-uppercase">Sale</div>
-            <div class="row d-flex align-items-center">
-              <div class="image col-lg-5"><img src="img/shirt.png" alt="..." class="img-fluid d-block"></div>
-              <div class="details col-lg-7">
-                <h2>Lose Oversized Shirt</h2>
-                <ul class="price list-inline">
-                  <li class="list-inline-item current">$65.00</li>
-                  <li class="list-inline-item original">$90.00</li>
-                </ul>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-                <div class="d-flex align-items-center">
-                  <div class="quantity d-flex align-items-center">
-                    <div class="dec-btn">-</div>
-                    <input type="text" value="1" class="quantity-no">
-                    <div class="inc-btn">+</div>
-                  </div>
-                  <select id="size" class="bs-select">
-                    <option value="small">Small</option>
-                    <option value="meduim">Medium</option>
-                    <option value="large">Large</option>
-                    <option value="x-large">X-Large</option>
-                  </select>
-                </div>
-                <ul class="CTAs list-inline">
-                  <li class="list-inline-item"><a href="#" class="btn btn-template wide"> <i class="fa fa-shopping-cart"></i>Add to Cart</a></li>
-                  <li class="list-inline-item"><a href="#" class="visit-product active btn btn-template-outlined wide"> <i class="icon-heart"></i>Add to wishlist</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="scrollTop"><i class="fa fa-long-arrow-up"></i></div>
-    <!-- Footer-->
-    <footer class="main-footer">
+    <!-- end header from theme -->
+
+       <!-- <div class="container"> -->
+        <router-view></router-view>
+      <!-- </div> -->
+
+            <!-- Footer from theme-->
+    <br><br><footer class="main-footer fixed-bottom">
+    
+
       <!-- Service Block-->
-      <div class="services-block">
+      <!-- <div class="services-block">
         <div class="container">
           <div class="row">
             <div class="col-lg-4 d-flex justify-content-center justify-content-lg-start">
@@ -630,9 +343,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <!-- Main Block -->
-      <div class="main-block">
+      <!-- <div class="main-block">
         <div class="container">
           <div class="row">
             <div class="info col-lg-4">
@@ -678,7 +391,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="copyrights">
         <div class="container">
           <div class="row d-flex align-items-center">
@@ -697,6 +410,14 @@
         </div>
       </div>
     </footer>
+        <!-- end footer from them -->
+    
+
+  </div>
+
+   
+
+    <!-- from theme -->
     <!-- Javascript files-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper.js/umd/popper.min.js"> </script>
@@ -707,6 +428,859 @@
     <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
     <script src="vendor/nouislider/nouislider.min.js"></script>
     <script src="js/front.js"></script>
-   </div>
-  </body>
+     <!-- end from theme -->
+
+     <!-- Optional JavaScript -->
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+     <!-- VueJS Scripts -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Custonm JS -->
+    <script src="index.js" defer></script>
+
+
+ </body>
+
 </html>
+
+  
+
+<template id="signup-page">
+
+  <div class="vue-component">
+
+  <div class="container">
+    <div   >
+   <div class="block "  >
+    <div class="block-header">
+      <h5 style="font-size: 25px;">New account</h5>
+    </div>
+    <div class="block-body" >
+      <div class="row"> 
+        <div class="col-6">
+          <p class="lead">Do you want to use this web site to sell your food?</p>
+        </div>
+        <div class="col-6">
+          <p class="lead">Do you want to use this web site to buy homemade food?</p>
+        </div>
+         </div>
+         <div class="row">
+          <div class="col-6">
+            <p class="lead">Create your account as a chief and choose the “chief” option.</p>
+         </div>  
+          <div class="col-6">      
+          <p class="lead">Create your account as a customer and choose the “customer” option.</p>
+         </div>
+        </div>
+      <hr>
+
+        <ul>
+          <li class="text-danger" v-for="error in errors">{{ error }}</li>
+        </ul>
+       <!--  <form > -->
+          <div class="form-group" >
+            <label class="form-label" style="font-size: 13px;">First Name:</label> 
+            <input type="text" class="form-control" style="font-size: 10px;" v-model="first_name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size: 13px;">Last Name:</label> 
+            <input type="text" class="form-control" style="font-size: 10px;" v-model="last_name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size: 13px;">Email:</label>
+            <input type="email" class="form-control" style="font-size: 10px;" v-model="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size: 13px;">Photo:</label>
+            <input type="text" class="form-control" style="font-size: 10px;" v-model="image_url">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size: 13px;">Phone number:</label>
+            <input type="text" class="form-control" style="font-size: 10px;" v-model="phone_number">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size: 13px;">Zipcode:</label>
+            <input type="text" class="form-control" style="font-size: 10px;" v-model="zipcode">
+          </div>
+           <div class="form-group">
+            <label class="form-label" style="font-size: 13px;">Password:</label>
+            <input type="password" class="form-control" style="font-size: 10px;" v-model="password">
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="font-size: 13px;">Password confirmation:</label>
+            <input type="password" class="form-control" style="font-size: 10px;" v-model="passwordConfirmation">
+          </div>
+          <div class="form-group">
+            <!-- <form action=""> -->
+              <div class="row ">
+                  <div class="col-6 ">
+                   <label class="form-label" style="font-size: 13px;">Chief:
+                   <input type="radio" name="provider"  value="true" style="font-size: 10px;" v-model="provider"></label>
+                 </div>
+             <div class="col-6">
+              <label class="form-label" style="font-size: 13px;">Customer:
+              <input type="radio" name="provider" value="false" style="font-size: 10px;" v-model="provider"></label>
+             </div>
+           </div>
+            <!-- </form> -->
+          </div>
+          <!-- <div>
+             <label class="form-label">Choose a chief or a customer:</label>
+             <div class="form-group" >
+               <input type="text" class="form-control" name="provider" value="true" v-model="provider" list="names">
+               <datalist id="names">
+
+                 <option > Chief</option>
+                 <option > Customer</option>
+
+              </datalist>
+  
+             </div>
+          </div> -->
+          <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary" style="font-size: 15px;" v-on:click="submit()"><i class="icon-profile"></i>Signup</button>
+          </div><br>
+        <!-- </form> -->
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+ <!--  <div class="edit-font">
+      <label>Cuisine:</label>
+
+      <div class="form-group" >
+       
+         <input type="text" class="form-control" v-model="category_id" list="titles">
+        <datalist id="titles">
+
+           <option v-for="category in categories"> {{ category.id + " " + category.title }}</option>
+
+        </datalist>
+      </div>
+     </div> -->
+
+
+  <!-- <div class="vue-component"> -->
+
+    <!-- <div class="container">
+      <h1>Signup</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group"> -->
+        <!-- <label>First Name:</label> 
+        <input type="text" class="form-control" v-model="first_name">
+      </div> -->
+      <!-- <div class="form-group">
+        <label>Last Name:</label> 
+        <input type="text" class="form-control" v-model="last_name">
+      </div>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Photo:</label>
+        <input type="text" class="form-control" v-model="image_url">
+      </div> -->
+      <!-- <div class="form-group">
+        <label>Phone number:</label>
+        <input type="text" class="form-control" v-model="phone_number">
+      </div> -->
+     <!--  <div class="form-group">
+        <label>Zipcode:</label>
+        <input type="text" class="form-control" v-model="zipcode">
+      </div>
+      
+      </div> -->
+      <!-- <div class="form-group">
+        <label>Password:</label>
+        <input type="password" class="form-control" v-model="password">
+      </div>
+      <div class="form-group">
+        <label>Password confirmation:</label>
+        <input type="password" class="form-control" v-model="passwordConfirmation">
+      </div>
+      <div class="form-group">
+        <form action="">
+         <input type="radio" name="provider" value="true" v-model="provider">Chief<br>
+         <input type="radio" name="provider" value="false" v-model="provider">Customer<br>
+        </form> -->
+     <!--  <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+    </div> -->
+</div>
+  </div>
+</template>
+
+<template id="login-page">
+
+ 
+  <div >
+   
+  <div class="vue-component">
+     <div class="container">
+   <div class="block">
+    <div class="block-header">
+      <h5 style="font-size: 25px;">Login</h5>
+    </div>
+     <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+
+    <div class="block-body">
+     
+     
+      <!-- <form class="form-group"> -->
+        <div >
+          <label for="email" style="font-size: 15px;" class="form-label">Email</label>
+          <input type="email" class="form-control " style="font-size: 15px;" v-model="email">
+        </div>
+        <div class="form-group">
+          <label for="password" style="font-size: 15px;" class="form-label">Password</label>
+          <input type="password" class="form-control " style="font-size: 15px;" v-model="password">
+        </div>
+        <div class="form-group text-center">
+          <button  class="btn btn-primary" style="font-size: 15px;" v-on:click="submit()"><i class="icon-profile"></i>Login</button>
+        </div>
+      <!-- </form> -->
+    </div>
+  </div>
+  </div>
+</div>
+      <!-- <h1>Login</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Email:</label>
+        <input type="email" class="form-control" v-model="email">
+      </div>
+      <div class="form-group">
+        <label>Password:</label>
+        
+      </div>
+      <button class="btn btn-primary" v-on:click="submit()">Submit</button> -->
+    
+</template>
+
+<template id="profile-show-page">
+
+ 
+
+  <div >
+
+            <div class="vue-component">
+     
+ <div class="container">
+    
+
+                  
+                    <div class="row d-flex">
+                      <div class="col-lg-9 order-2 order-lg-1">
+                        <h1>Your profile</h1>
+                      </div>
+                      <div class="col-lg-3 text-right order-1 order-lg-2">
+                        <ul class="breadcrumb justify-content-lg-end">
+                          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                          <li class="breadcrumb-item active">Your profile</li>
+                        </ul>
+                      </div>
+                    </div>
+                  
+    
+      
+
+    
+    <!-- <h2>{{ current_user.first_name }}</h2> -->
+
+   <!--  <div v-if="current_user.provider === true">   
+      <a  href="/#/dishes/new">To create a new dish<span class="sr-only">(current)</span></a><br>
+      <a  href="/#/">My Dish<span class="sr-only">(current)</span></a><br> -->
+      <!-- <a :href="/#/"><button type="button" v-model="currentUserDish()" class="btn btn-secondary">Dishes</button></a> -->
+
+    <!-- </div> -->
+
+
+    <!-- <div v-if="current_user.provider === false">   -->
+
+
+     <div class="padding-small">
+
+        <div class="row">
+          <div class="customer-sidebar col-xl-3 col-lg-4 mb-md-5">
+           <div class="customer-profile"><a href="#" class="d-inline-block"><img :src="current_user.image_url" class="img-fluid rounded-circle customer-image"></a>
+              <h5 style="font-size: 15px;">{{ current_user.first_name }} {{current_user.last_name}}</h5>
+              <p style="font-size: 10px;" class="text-muted text-small">email: {{ current_user.email }}</p>
+              <p style="font-size: 10px;" class="text-muted text-small">zipcode: {{ current_user.zipcode }}</p>
+              <p style="font-size: 10px;" class="text-muted text-small">phone number: {{ current_user.phone_number }}</p>
+
+              <nav class="list-group customer-nav">
+                <div v-if="current_user.provider === false">
+                  <a href="/#/orders/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-bag"></span>Orders</span><small class="badge badge-pill badge-primary"></small></a>
+                  <a href="/#/carted_dishes/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-cart"></span>Shopping cart</span><small class="badge badge-pill badge-primary"></small></a>
+                  <a href="/#/logout" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="fa fa-sign-out"></span>Log out</span></a>
+                </div>
+
+                <div v-if="current_user.provider === true">
+                  <a href="/#/dishes/new" class="list-group-item d-flex justify-content-between align-items-center"><span><span  class="icon icon-bag"></span>Create new Dish</span><small class="badge badge-pill badge-primary" ></small></a>
+                  <a href="/#/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-cart"></span>View Dishes</span><small class="badge badge-pill badge-primary"></small></a>
+                  <a href="/#/logout" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="fa fa-sign-out"></span>Log out</span></a>
+                </div>
+              </nav>     
+             </div>
+            </div>
+         <!--   </div>  -->
+
+
+                        <div class="col-lg-8 col-xl-9 pl-lg-3">
+                            <div class="block-header mb-5">
+                              <h5>Change password  </h5>
+                            </div>
+                              <form class="content-block">
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <div class="form-group">
+                                      <label for="password_old" class="form-label">Old password</label>
+                                      <input id="password_old" type="password" class="form-control">
+                                    </div>
+                                  </div>
+                                </div>
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="password_1" class="form-label">New password</label>
+                                    <input id="password_1" type="password" class="form-control">
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="form-group">
+                                    <label for="password_2" class="form-label">Retype new password</label>
+                                    <input id="password_2" type="password" class="form-control">
+                                  </div>
+                                </div>
+                              </div>
+              <!-- /.row-->
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Change password</button>
+                            </div>
+                          </form>
+
+                          <!-- <div class="block-header mb-5">
+                            <h5>Personal details</h5>
+                          </div> -->
+                         <!-- <form class="content-block">
+                             <div class="row">
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label  class="form-label">Firstname</label>
+                                  <input  type="text" class="form-control" >
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="form-group">
+                                  <label  class="form-label">Lastname</label>
+                                  <input  type="text" class="form-control" >
+                                </div>
+                              </div>
+                            </div>
+                         <div class="row">
+                           <div class="col-sm-6 col-md-3">
+                            <div class="form-group">
+                              <label  class="form-label">Zipcode</label>
+                              <input  type="text" class="form-control" >
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label  class="form-label">Phone number</label>
+                              <input type="text" class="form-control" >
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label class="form-label">Email</label>
+                              <input type="text" class="form-control" >
+                            </div>
+                          
+                          <div class="col-sm-12 text-center">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Save changes</button>
+                          </div>
+                         </div>
+                      </form> -->
+                    </div>
+                   </div>
+
+                 </div>
+
+
+  </div>
+</div>
+</div>
+</template>
+
+
+
+<template id="dish-index-page">
+
+  <div class="vue-component">
+    <div class="container">
+
+
+    
+     <div  class="img-top">
+
+       <div class="font-top">
+        <h3 style="font-size: 50px">Welcome to the world of homemade food</h3><br>
+        <h3 style="font-size: 30px">Are you a chief or a customer?</h3><br>
+       </div>
+
+       
+       <div align="center"> 
+        <a href="/#/signup"><button style="background-color: #A33A80; " class="btn btn-template wide">SignUp</button></a>
+        <a href="/#/login"><button style="background-color: #A33A80; " class="btn btn-template wide">LogIn</button></a>
+       </div>
+       
+     </div> 
+
+    <!-- Search form -->
+     <div class="section-search"  >
+    <div class="input-group"  >
+     
+      <span class="input-group-addon" >
+        <i class="glyphicon glyphicon-search"  ></i>
+      </span>
+      <input type="text"  style="font-size: 15px; " class="form-control"  placeholder="Search dish here" aria-label="Search" v-model="nameDishFilter"/>
+    </div>
+    </div><br>
+     <!-- end search form -->
+
+
+
+
+ 
+    <!-- Hide cuisine -->
+    <div>
+     <div class="cuisine">
+       <button class="btn btn-template wide" style="font-size: 15px; " v-on:click="toggle()">Choose cuisine here</button>
+      
+     
+
+
+
+    
+
+   <div class="hidden" id="categories">
+      <!-- <br> -->
+        <hr class="seprt">
+      <!-- <br> -->
+      <button type="button" style="font-size: 15px;"  class="btn wide" v-for="category in categories" v-on:click="categoryFilter(category)">{{ category.title }}</button>
+        
+      <div align="center">
+        <button  type="button" style="font-size: 15px;" class="btn " v-on:click="categoryFilter('all')">All cuisine</button>
+        <br>
+        <br>
+      </div>
+   </div>
+  </div>
+ </div>
+ <!-- end hide cuisin -->  
+
+     <!-- card my-->
+
+  <!-- <div class="row">
+
+    <div v-for="dish in dishes" class="col-md-4">
+      <div class="card ">
+      <div v-if="current_user.provider === false || dish.user_id === current_user.id">
+     
+   
+      <div  v-if="isValidDish(dish)" >
+        <h5 align="center" class="card-text-header name">{{  dish.name }}</h5>
+        
+          <img class="card-img-top " :src="dish.image_url" alt="Card image cap" >
+          <div class="card-body ">
+            <h5 class="card-text name">{{  dish.name }}</h5>
+
+            <p class="card-text price">Price: {{  dish.price }}</p>
+            <p class="card-text name">Chief: {{  dish.user.first_name }}</p>
+            <p class="card-text name">Cuisine: {{  dish.category.title }}</p>
+           
+            <div >
+             <a v-on:click="setCurrentDish(dish)" class=" btn more pull-right"  data-toggle="modal" data-target="#exampleModal">More info</a>
+           </div>
+
+          </div>
+      
+    </div>
+  </div>
+</div>
+  </div>
+ </div> -->
+ <!-- end card-->
+
+
+  <div class="products-grid col-xl-12 col-lg-8 sidebar-left">
+
+     <div class="row">
+       <div v-for="dish in dishes" class="item col-xl-4 col-md-6" v-if="isValidDish(dish)">
+        <div v-if="current_user.provider === false || dish.user_id === current_user.id">
+        <div>
+          <div class="product is-gray">
+            <div class="image d-flex align-items-center justify-content-center">     
+              <div class="ribbon ribbon-primary text-uppercase"><a v-on:click="setCurrentDish(dish)"  data-toggle="modal" data-target="#exampleModal">More info</a></div><img :src="dish.image_url" alt="product" class="img-fluid" style="max-width: 300px;">
+            </div>
+            <div class="title"><small style="font-size: 10px;" class="text-muted">Cuisine: {{  dish.category.title }}</small><br>
+             <small class="text-muted" style="font-size: 10px;">Chief: {{  dish.user.first_name }}</small>
+              <h3 class="h6 text-uppercase no-margin-bottom" style="font-size: 15px;">{{  dish.name }}</h3><span style="font-size: 15px;" class="price text-muted">${{  dish.price }}</span></div>
+            
+       </div>
+     </div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel" style="font-size: 15px;">{{ currentDish.name }}</h5>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid"  :src="currentDish.image_url" alt="Card image cap">
+            <!-- <p> {{ currentDish.price }}</p> -->
+            <p style="font-size: 13px;">  {{ currentDish.description }}</p>
+            <!-- <p> Chief: {{ currentDish.user}}</p> -->
+           
+          </div>
+
+          <div class="modal-footer">
+
+
+          <form class="form-inline">
+    
+ 
+
+      <div v-if="currentDish.user_id == current_user.id">
+      <a :href="'/#/dishes/' + currentDish.id + '/edit'"><button data-dismiss="modal" data-backdrop="false"  type="button" class="btn btn-secondary">Edit Dish</button></a>
+           
+      <a :href="'/#/dishes/' + currentDish.id + '/delete'"><button type="button" class="btn btn-secondary">Delete Dish</button></a>
+    </div>
+ <!--  </div>
+
+    <div class="modal-footer"> -->
+      <div v-if="current_user.provider === false" >
+      
+       
+       <!--  <label >Quantity:</label>  -->
+        <input  type="number"  v-model="quantity" placeholder="Quantity">
+      
+
+      <a href="/#/carted_dishes/new"><button v-on:click="submit()" type="button" data-dismiss="modal" data-backdrop="false" class="btn btn-secondary">Add to cart</button></a> 
+     
+    </div>                                                     
+</form>
+         
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+      </div>
+    </div>
+   <!-- </div> -->
+  <!-- </div> -->
+</div>
+
+
+</template>
+
+<template  id="dishes-new-page">
+  <div class="vue-component">
+
+    <div class="container back-image">
+      <div class="edit-page ">
+      <h1>New Dish</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group edit-font">
+        <label>Name:</label> 
+        <input type="text" class="form-control insite-input" v-model="name">
+      </div>
+      <div class="form-group edit-font">
+        <label>Price:</label>
+        <input  type="decimal" class="form-control insite-input" v-model="price">
+      </div>
+      <div class="form-group edit-font">
+        <label>Description:</label>
+        <input type="text" class="form-control insite-input" v-model="description">
+      </div>
+
+     <div class="edit-font">
+      <label>Cuisine:</label>
+
+      <div class="form-group" >
+       
+         <input type="text" class="form-control insite-input" v-model="category_id" list="titles">
+        <datalist id="titles">
+
+           <option v-for="category in categories"> {{ category.id + " " + category.title }}</option>
+
+        </datalist>
+      </div>
+     </div>
+
+      <div class="form-group edit-font">
+        <label>Image:</label>
+        <input type="text" class="form-control insite-input" v-model="image_url">
+      </div>
+           
+      <button class="btn btn-primary" style="font-size: 20px; background-color: #4CAF50;" v-on:click="submit()">Submit</button>
+     </div>
+    </div>
+  </div>
+  </div>
+</template>
+
+<template id="dishes-edit-page">
+
+  <div class="vue-component ">
+
+  <div class="container back-image">
+    <div class="edit-page ">
+    <h1>Edit Dish</h1>
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group edit-font">
+        <label>Name:</label> 
+        <input type="text" class="form-control insite-input" v-model="name">
+      </div>
+      <div class="form-group edit-font">
+        <label>Price:</label>
+        <input type="decimal" class="form-control insite-input" v-model="price">
+      </div>
+      <div class="form-group edit-font">
+        <label>Description:</label>
+        <input type="text" class="form-control insite-input" v-model="description">
+      </div>
+
+      <div class="edit-font">  
+      <label>Cuisine:</label>
+
+      <div class="form-group edit-font" >
+       
+         <input type="text" class="form-control insite-input" v-model="category_id" list="titles" >
+        <datalist id="titles">
+
+           <option v-for="category in categories">{{ category.id + " " + category.title }}</option>
+
+        </datalist>
+</div>
+
+      </div>
+
+
+      <div class="form-group edit-font">
+        <label>Image:</label>
+        <input type="text" class="form-control insite-input" v-model="image_url">
+      </div>
+
+      
+ <button class="btn btn-primary " style="font-size: 20px; background-color: #4CAF50; border-color: #4CAF50;" v-on:click="submit()">Submit</button>
+  </div>
+</div>
+</div>
+</template>
+
+
+
+<template id="dishes-delete-page">
+  <div class="vue-component">
+
+
+  </div>
+</template>
+
+
+
+
+
+<template id="carted_dish-index-page">
+ 
+ 
+     <div class="vue-component">
+
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-lg-9 order-2 order-lg-1">
+            <h1>Shopping cart</h1>
+          </div>
+          <div class="col-lg-3 text-right order-1 order-lg-2">
+            <ul class="breadcrumb justify-content-lg-end">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Shopping cart</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="container shopping-cart">
+        <div class="basket-body">
+          <div class="basket">
+            <div class="basket-holder">
+              <div class="basket-header">
+                <div class="row">
+                    <div class="col-5">Dish</div>
+                    <div class="col-2">Price</div>
+                    <div class="col-2">Quantity</div>
+                    <div class="col-2">Subtotal</div>
+                    <div class="col-1 text-center">Remove</div>
+
+                  </div>
+                </div>
+                <div class="basket-body">
+                  <div v-for="carted_dish in carted_dishes">
+                    <div class="item">
+                      <div class="row d-flex align-items-center">
+                        <div class="col-5">
+                          <div class="d-flex align-items-center"><img :src="carted_dish.dish.image_url"  alt="..." class="img-fluid">
+                           <div class="title"><a href="detail.html">
+                              <h5>{{ carted_dish.dish.name }}</h5><span class="text-muted"></span></a>
+                          </div>
+                        </div>
+                      </div>
+                     <div class="col-2"><span>${{  carted_dish.dish.price }}</span></div>
+                      <div class="col-1">                       
+                        <div class="text-center">                        
+                          <span>{{ carted_dish.quantity }}</span>
+                        </div>                       
+                      </div>
+                      <div class="col-3">                       
+                        <div class="text-center">                        
+                          <span>{{ carted_dish.subtotal_carted }}</span>
+                        </div>                       
+                      </div>
+                      <div class="col-1 text-center"><a :href="'/#/carted_dishes/' + carted_dish.id + '/delete'"><button type="button" class="btn-remove" ><i class="delete fa fa-trash"></i></button></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+   
+    
+       
+        <div class="container">
+        <div class="CTAs d-flex align-items-center justify-content-center justify-content-md-end flex-column flex-md-row"><a href="shop.html" class="btn btn-template-outlined wide">Continue Shopping</a><a href="#" class="btn btn-template wide" v-on:click="checkout()">Checkout</a></div>
+      </div>
+     </div> <br>
+     <br>
+
+ 
+ 
+
+</template>
+
+<template id="cartedDishes-delete-page">
+  <div class="vue-component">
+
+    <a href="/#/carted_dishes">Back to your cart</a>
+
+  </div>
+
+</template>
+
+
+
+<template id="orders-index-page">
+
+  <div class="vue-component">
+
+    <div class="hero hero-page gray-bg padding-small">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-lg-9 order-2 order-lg-1">
+            <h1>Your orders</h1>
+          </div>
+          <div class="col-lg-3 text-right order-1 order-lg-2">
+            <ul class="breadcrumb justify-content-lg-end">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="customer-orders.html">Orders</a></li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    
+
+ <table class="table" >   
+    <table id="customers">
+        <thead>
+         <tr>
+          <th>Order</th>
+          <th>Subtotal</th>
+          <th>Tax</th>
+          <th>Total</th>
+          <th>Cancel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="order in orders">
+          <td> #{{ order.id }}</td>
+          <td>{{ order.subtotal }}</td>
+          <td>{{ order.tax }}</td>
+          <td>{{ order.total }}</td>
+          <td><a :href="'/#/orders/' + order.id + '/delete'"><button type="button" class="btn-remove" ><i class="fa fa-trash"></i></button></a></td>
+
+          
+        </tr>
+       </tbody>
+       </table>
+     </table>
+           
+       </div>
+     
+</template>
+
+
+
+
+
+ <template id="orders-delete-page">
+  <div class="vue-component">
+
+
+    <a href="/#/orders">Back to orders</a>
+
+  </div>
+
+</template>
