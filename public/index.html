@@ -51,89 +51,49 @@
  
   </head>
 
-  <body >
-  <div id="vue-app">
-   <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/#/">Home</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="/#/"><span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/#/">Menu</a>
-        </li>
-
-        
-        <li class="nav-item">
-        <a class="nav-link" href="/#/current_user/">My account</a>
-
-        </li>
-
-        <li class="nav-item">
-         <a class="dropdown-item" href="/#/signup">SignUp</a>
-        </li>
-        <li class="nav-item">
-           <a class="dropdown-item" href="/#/login">LogIn</a>
-        </li>
-        <li class="nav-item">
-           <a class="dropdown-item" href="/#/logout">LogOut</a>
-        </li>
-       
-      </ul>
-     </div>
-   </nav> -->
-
-  
-   
+  <body>
+  <div id="vue-app">   
 
     <!-- header from theme -->
-   <header class="header">
+  <header class="header">
       <!-- Tob Bar-->
-      <div class="top-bar">
-        <div class="container-fluid">
-          <div class="row d-flex align-items-center">
-            <div class="col-lg-6 hidden-lg-down text-col">
-              <ul class="list-inline">
-                <li class="list-inline-item"><i class="icon-telephone"></i>020-800-456-747</li>
-                <li class="list-inline-item">Free shipping on orders over $300</li>
-              </ul>
+    <div class="top-bar">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-6 hidden-lg-down text-col">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="icon-telephone"></i>020-800-456-747</li>
+              <li class="list-inline-item">Free shipping on orders over $300</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-end">
+            <!-- Language Dropdown-->
+            <div class="dropdown show"><a id="langsDropdown" href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><img src="img/united-kingdom.svg" alt="english">English</a>
+            <div aria-labelledby="langsDropdown" class="dropdown-menu"><a href="#" class="dropdown-item"><img src="img/germany.svg" alt="german">German</a><a href="#" class="dropdown-item"> <img src="img/france.svg" alt="french">French</a></div>
             </div>
-            <div class="col-lg-6 d-flex justify-content-end">
-              <!-- Language Dropdown-->
-              <div class="dropdown show"><a id="langsDropdown" href="https://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><img src="img/united-kingdom.svg" alt="english">English</a>
-                <div aria-labelledby="langsDropdown" class="dropdown-menu"><a href="#" class="dropdown-item"><img src="img/germany.svg" alt="german">German</a><a href="#" class="dropdown-item"> <img src="img/france.svg" alt="french">French</a></div>
-              </div>
-              <!-- Currency Dropdown-->
-              <div class="dropdown show"><a id="currencyDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">USD</a>
-                <div aria-labelledby="currencyDropdown" class="dropdown-menu"><a href="#" class="dropdown-item">EUR</a><a href="#" class="dropdown-item"> GBP</a></div>
-              </div>
+            <!-- Currency Dropdown-->
+            <div class="dropdown show"><a id="currencyDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">USD</a>
+            <div aria-labelledby="currencyDropdown" class="dropdown-menu"><a href="#" class="dropdown-item">EUR</a><a href="#" class="dropdown-item"> GBP</a></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
       <nav class="navbar navbar-expand-lg">
         <div class="search-area">
           <div class="search-area-inner d-flex align-items-center justify-content-center">
             <div class="close-btn"><i class="icon-close"></i></div>
-            <form action="#">
-              <div class="form-group">
-                <input type="search" name="search" id="search" placeholder="What are you looking for?">
-                <button type="submit" class="submit"><i class="icon-search"></i></button>
-              </div>
-            </form>
+              <form action="#">
+                <div class="form-group">
+                  <input type="search" name="search" id="search" placeholder="What are you looking for?">
+                  <button type="submit" class="submit"><i class="icon-search"></i></button>
+                </div>
+              </form>
+            </div>
           </div>
-        </div>
-        <div class="container-fluid">  
-          <!-- Navbar Header  -->
-          <!-- <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="..."></a>  -->
-
-           <p><span class="glyphicons glyphicons-plate-of-food"></span></p>
-
-         
+          <div class="container-fluid">  
+            <!-- Navbar Header  -->
+           
           <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
           <!-- Navbar Collapse -->
           <div id="navbarCollapse" class="collapse navbar-collapse">
@@ -143,121 +103,7 @@
               <li class="nav-item"><a href="/#/" class="nav-link nav-font">Menu</a>
               </li>
 
-              <!-- Megamenu-->
-             <!--  <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="nav-link nav-font">Shop<i class="fa fa-angle-down"></i></a>
-                <div class="dropdown-menu megamenu">
-                  <div class="row">
-                    <div class="col-lg-9">
-                      <div class="row">
-                        <div class="col-lg-3"><strong class="text-uppercase">Home</strong>
-                          <ul class="list-unstyled">
-                            <li><a href="/#/crrent_user">Homepage 1</a></li>
-                          </ul><strong class="text-uppercase">Shop</strong>
-                          <ul class="list-unstyled">                                                   
-                            <li><a href="category.html">Category - left sidebar</a></li>
-                            <li><a href="category-right.html">Category - right sidebar</a></li>
-                            <li><a href="category-full.html">Category - full width</a></li>
-                            <li><a href="detail.html">Product detail</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-lg-3"><strong class="text-uppercase">Order process</strong>
-                          <ul class="list-unstyled">
-                            <li><a href="cart.html">Shopping cart</a></li>
-                            <li><a href="checkout1.html">Checkout 1 - Address</a></li>
-                            <li><a href="checkout2.html">Checkout 2 - Delivery</a></li>
-                            <li><a href="checkout3.html">Checkout 3 - Payment</a></li>
-                            <li><a href="checkout4.html">Checkout 4 - Review             </a></li>
-                            <li><a href="checkout5.html">Checkout 5 - Confirmation             </a></li>
-                          </ul><strong class="text-uppercase">Blog</strong>
-                          <ul class="list-unstyled">                                                   
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="post.html">Post                                                                                           </a></li>
-                          </ul>
-                        </div>
-                        <div class="col-lg-3"><strong class="text-uppercase">Pages</strong>
-                          <ul class="list-unstyled">
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="text.html">Text page</a></li>
-                            <li><a href="404.html">Error 404</a></li>
-                            <li><a href="500.html">Error 500</a></li>
-                            <li>More coming soon                                                    </li>
-                          </ul>
-                        </div>
-                        <div class="col-lg-3"><strong class="text-uppercase">Customer</strong>
-                          <ul class="list-unstyled">
-                            <li><a href="customer-login.html">Login/sign up</a></li>
-                            <li><a href="customer-orders.html">Orders</a></li>
-                            <li><a href="customer-order.html">Order detail</a></li>
-                            <li><a href="customer-addresses.html">Addresses</a></li>
-                            <li><a href="customer-account.html">Profile</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="row services-block">
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="item d-flex align-items-center">
-                            <div class="icon"><i class="icon-truck text-primary"></i></div>
-                            <div class="text"><span class="text-uppercase">Free shipping &amp; return</span><small>Free Shipping over $300</small></div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="item d-flex align-items-center">
-                            <div class="icon"><i class="icon-coin text-primary"></i></div>
-                            <div class="text"><span class="text-uppercase">Money back guarantee</span><small>30 Days Money Back</small></div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="item d-flex align-items-center">
-                            <div class="icon"><i class="icon-headphones text-primary"></i></div>
-                            <div class="text"><span class="text-uppercase">020-800-456-747</span><small>24/7 Available Support</small></div>
-                          </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-6 d-flex">
-                          <div class="item d-flex align-items-center">
-                            <div class="icon"><i class="icon-secure-shield text-primary"></i></div>
-                            <div class="text"><span class="text-uppercase">Secure Payment</span><small>Secure Payment</small></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-3 text-center product-col hidden-lg-down"><a href="detail.html" class="product-image"><img src="img/shirt.png" alt="..." class="img-fluid"></a>
-                      <h6 class="text-uppercase product-heading"><a href="detail.html">Lose Oversized Shirt</a></h6>
-                      <ul class="rate list-inline">
-                        <li class="list-inline-item"><i class="fa fa-star-o text-primary"></i></li>
-                        <li class="list-inline-item"><i class="fa fa-star-o text-primary"></i></li>
-                        <li class="list-inline-item"><i class="fa fa-star-o text-primary"></i></li>
-                        <li class="list-inline-item"><i class="fa fa-star-o text-primary"></i></li>
-                        <li class="list-inline-item"><i class="fa fa-star-o text-primary"></i></li>
-                      </ul><strong class="price text-primary">$65.00</strong><a href="#" class="btn btn-template wide">Add to cart</a>
-                    </div>
-                  </div>
-                </div>
-              </li> -->
-              <!-- /Megamenu end-->
-              <!-- Multi level dropdown    -->
-              <!-- <li class="nav-item dropdown"><a id="navbarDropdownMenuLink" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">Dropdown<i class="fa fa-angle-down"></i></a>
-                <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
-                  <li><a href="#" class="dropdown-item">Action</a></li>
-                  <li><a href="#" class="dropdown-item">Another action</a></li>
-                  <li class="dropdown-submenu"><a id="navbarDropdownMenuLink2" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">Dropdown link<i class="fa fa-angle-down"></i></a>
-                    <ul aria-labelledby="navbarDropdownMenuLink2" class="dropdown-menu">
-                      <li><a href="#" class="dropdown-item">Action</a></li>
-                      <li class="dropdown-submenu"><a id="navbarDropdownMenuLink3" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link">
-                           
-                          Another action<i class="fa fa-angle-down"></i></a>
-                        <ul aria-labelledby="navbarDropdownMenuLink3" class="dropdown-menu">
-                          <li><a href="#" class="dropdown-item">Action</a></li>
-                          <li><a href="#" class="dropdown-item">Action</a></li>
-                          <li><a href="#" class="dropdown-item">Action</a></li>
-                          <li><a href="#" class="dropdown-item">Action</a></li>
-                        </ul>
-                      </li>
-                      <li><a href="#" class="dropdown-item">Something else here</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </li> -->
+              
               <!-- Multi level dropdown end-->
               <li class="nav-item"><a href="#" class="nav-link nav-font">Feedback </a>
               </li>
@@ -275,34 +121,12 @@
               <div class="search"><i class="icon-search"></i></div>
               <!-- User Not Logged - link to login page-->
               <div class="user btn-lg"  > <a id="userdetails" href="/#/current_user" class="user-link"><i class="icon-profile">                   </i></a></div>
-              <div class="cart btn-lg" > <a id="cartdetails" href="/#/carted_dishes" class="cart-link"><i class="icon-cart" >                   </i></a></div>
-
-              <!-- Cart Dropdown-->
-              <!-- <div href="/#/carted_dishes"  ><i class="icon-cart"></i> -->
-                
-
-                  <!-- <div class=""></div></a><a href="/#/carted_dishes" class="text-primary view-cart">View Cart</a> -->
-                <!-- <div aria-labelledby="cartdetails" class="dropdown-menu"> -->
-                  <!-- cart item-->
-                   <!-- <div class="dropdown-item cart-product"> -->
-                    <!-- <div class="d-flex align-items-center"> -->
-                      <!-- <div class="img"><img src="img/hoodie-man-1.png" alt="..." class="img-fluid"></div> -->
-                      <!-- <div class="details d-flex justify-content-between">
-                        <div class="text"> <a href="#"><strong>Heather Gray Hoodie</strong></a><small>Quantity: 1 </small><span class="price">$75.00 </span></div><a href="#" class="delete"><i class="fa fa-trash-o"></i></a>
-                      </div> -->
-                   <!--  </div> -->
-                  <!-- </div> -->
-                  <!-- total price-->
-                  <!-- <div class="dropdown-item total-price d-flex justify-content-between"><span>Total</span><strong class="text-primary">$75.00</strong></div> -->
-                  <!-- call to actions-->
-                  <!-- <div class="dropdown-item CTA d-flex"><a href="cart.html" class="btn btn-template wide">View Cart</a><a href="checkout1.html" class="btn btn-template wide">Checkout</a></div> -->
-                <!-- </div>  -->
-              <!-- </div> -->
-            </div>
+              <div class="cart btn-lg" > <a id="cartdetails" href="/#/carted_dishes" class="cart-link"><i class="icon-cart" >                   </i></a></div>            
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </nav>
+  </header>
     <!-- end header from theme -->
 
        <!-- <div class="container"> -->
@@ -310,7 +134,7 @@
       <!-- </div> -->
 
             <!-- Footer from theme-->
-    <br><br><footer class="main-footer fixed-bottom">
+    <br><br><footer class="main-footer ">
     
 
       <!-- Service Block-->
@@ -456,28 +280,28 @@
 
   <div class="vue-component">
 
-  <div class="container">
-    <div   >
-   <div class="block "  >
-    <div class="block-header">
-      <h5 style="font-size: 25px;">New account</h5>
-    </div>
-    <div class="block-body" >
+   <div class="container">
+    <div>
+     <div class="block">
+      <div class="block-header">
+        <h5 style="font-size: 25px;">New account</h5>
+      </div>
+     <div class="block-body" >
       <div class="row"> 
         <div class="col-6">
           <p class="lead">Do you want to use this web site to sell your food?</p>
         </div>
-        <div class="col-6">
+      <div class="col-6">
           <p class="lead">Do you want to use this web site to buy homemade food?</p>
-        </div>
-         </div>
-         <div class="row">
-          <div class="col-6">
-            <p class="lead">Create your account as a chief and choose the “chief” option.</p>
-         </div>  
-          <div class="col-6">      
-          <p class="lead">Create your account as a customer and choose the “customer” option.</p>
-         </div>
+     </div>
+    </div>
+     <div class="row">
+      <div class="col-6">
+        <p class="lead">Create your account as a chef and choose the “chef” option.</p>
+     </div>  
+      <div class="col-6">      
+        <p class="lead">Create your account as a customer and choose the “customer” option.</p>
+      </div>
         </div>
       <hr>
 
@@ -520,15 +344,15 @@
           <div class="form-group">
             <!-- <form action=""> -->
               <div class="row ">
-                  <div class="col-6 ">
-                   <label class="form-label" style="font-size: 13px;">Chief:
-                   <input type="radio" name="provider"  value="true" style="font-size: 10px;" v-model="provider"></label>
+               <div class="col-6 ">
+                 <label class="form-label" style="font-size: 13px;">Chef:
+                 <input type="radio" name="provider"  value="true" style="font-size: 10px;" v-model="provider"></label>
                  </div>
-             <div class="col-6">
-              <label class="form-label" style="font-size: 13px;">Customer:
-              <input type="radio" name="provider" value="false" style="font-size: 10px;" v-model="provider"></label>
+               <div class="col-6">
+                <label class="form-label" style="font-size: 13px;">Customer:
+                <input type="radio" name="provider" value="false" style="font-size: 10px;" v-model="provider"></label>
+              </div>
              </div>
-           </div>
             <!-- </form> -->
           </div>
           <!-- <div>
@@ -551,7 +375,7 @@
       </div>
     </div>
   </div>
-  </div>
+</div>
 
 
  <!--  <div class="edit-font">
@@ -618,39 +442,34 @@
      <!--  <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div> -->
 </div>
-  </div>
+</div>
 </template>
 
 <template id="login-page">
-
- 
-  <div >
-   
-  <div class="vue-component">
-     <div class="container">
-   <div class="block">
-    <div class="block-header">
-      <h5 style="font-size: 25px;">Login</h5>
-    </div>
+  <div>   
+   <div class="vue-component">
+    <div class="container">
+     <div class="block">
+      <div class="block-header">
+        <h5 style="font-size: 25px;">Login</h5>
+      </div>
      <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
 
-    <div class="block-body">
-     
-     
+    <div class="block-body">   
       <!-- <form class="form-group"> -->
-        <div >
-          <label for="email" style="font-size: 15px;" class="form-label">Email</label>
-          <input type="email" class="form-control " style="font-size: 15px;" v-model="email">
+      <div >
+        <label for="email" style="font-size: 15px;" class="form-label">Email</label>
+        <input type="email" class="form-control " style="font-size: 15px;" v-model="email">
+      </div>
+      <div class="form-group">
+        <label for="password" style="font-size: 15px;" class="form-label">Password</label>
+        <input type="password" class="form-control "  v-model="password">
         </div>
-        <div class="form-group">
-          <label for="password" style="font-size: 15px;" class="form-label">Password</label>
-          <input type="password" class="form-control " style="font-size: 15px;" v-model="password">
-        </div>
-        <div class="form-group text-center">
-          <button  class="btn btn-primary" style="font-size: 15px;" v-on:click="submit()"><i class="icon-profile"></i>Login</button>
-        </div>
+       <div class="form-group text-center">
+        <button  class="btn btn-primary" style="font-size: 15px;" v-on:click="submit()"><i class="icon-profile"></i>Login</button>
+       </div>
       <!-- </form> -->
     </div>
   </div>
@@ -673,33 +492,21 @@
 </template>
 
 <template id="profile-show-page">
-
- 
-
-  <div >
-
-            <div class="vue-component">
-     
- <div class="container">
-    
-
-                  
-                    <div class="row d-flex">
-                      <div class="col-lg-9 order-2 order-lg-1">
-                        <h1>Your profile</h1>
-                      </div>
-                      <div class="col-lg-3 text-right order-1 order-lg-2">
-                        <ul class="breadcrumb justify-content-lg-end">
-                          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                          <li class="breadcrumb-item active">Your profile</li>
-                        </ul>
-                      </div>
-                    </div>
-                  
-    
-      
-
-    
+  <div>
+    <div class="vue-component">
+      <div class="container">                  
+        <div class="row d-flex">
+          <div class="col-lg-9 order-2 order-lg-1">
+            <h1>Your profile</h1>
+          </div>
+          <div class="col-lg-3 text-right order-1 order-lg-2">
+            <ul class="breadcrumb justify-content-lg-end">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active">Your profile</li>
+            </ul>
+          </div>
+        </div> 
+   
     <!-- <h2>{{ current_user.first_name }}</h2> -->
 
    <!--  <div v-if="current_user.provider === true">   
@@ -714,153 +521,140 @@
 
 
      <div class="padding-small">
-
-        <div class="row">
-          <div class="customer-sidebar col-xl-3 col-lg-4 mb-md-5">
+       <div class="row">
+         <div class="customer-sidebar col-xl-3 col-lg-4 mb-md-5">
            <div class="customer-profile"><a href="#" class="d-inline-block"><img :src="current_user.image_url" class="img-fluid rounded-circle customer-image"></a>
               <h5 style="font-size: 15px;">{{ current_user.first_name }} {{current_user.last_name}}</h5>
               <p style="font-size: 10px;" class="text-muted text-small">email: {{ current_user.email }}</p>
               <p style="font-size: 10px;" class="text-muted text-small">zipcode: {{ current_user.zipcode }}</p>
               <p style="font-size: 10px;" class="text-muted text-small">phone number: {{ current_user.phone_number }}</p>
 
-              <nav class="list-group customer-nav">
-                <div v-if="current_user.provider === false">
-                  <a href="/#/orders/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-bag"></span>Orders</span><small class="badge badge-pill badge-primary"></small></a>
-                  <a href="/#/carted_dishes/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-cart"></span>Shopping cart</span><small class="badge badge-pill badge-primary"></small></a>
-                  <a href="/#/logout" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="fa fa-sign-out"></span>Log out</span></a>
-                </div>
-
-                <div v-if="current_user.provider === true">
-                  <a href="/#/dishes/new" class="list-group-item d-flex justify-content-between align-items-center"><span><span  class="icon icon-bag"></span>Create new Dish</span><small class="badge badge-pill badge-primary" ></small></a>
-                  <a href="/#/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-cart"></span>View Dishes</span><small class="badge badge-pill badge-primary"></small></a>
-                  <a href="/#/logout" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="fa fa-sign-out"></span>Log out</span></a>
-                </div>
-              </nav>     
-             </div>
+          <nav class="list-group customer-nav">
+            <div v-if="current_user.provider === false">
+              <a href="/#/orders/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-bag"></span>Orders</span><small class="badge badge-pill badge-primary"></small></a>
+              <a href="/#/carted_dishes/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-cart"></span>Shopping cart</span><small class="badge badge-pill badge-primary"></small></a>
+              <a href="/#/logout" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="fa fa-sign-out"></span>Log out</span></a>
             </div>
+
+            <div v-if="current_user.provider === true">
+              <a href="/#/dishes/new" class="list-group-item d-flex justify-content-between align-items-center"><span><span  class="icon icon-bag"></span>Create new Dish</span><small class="badge badge-pill badge-primary" ></small></a>
+              <a href="/#/" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="icon icon-cart"></span>View Dishes</span><small class="badge badge-pill badge-primary"></small></a>
+              <a href="/#/logout" class="list-group-item d-flex justify-content-between align-items-center"><span><span class="fa fa-sign-out"></span>Log out</span></a>
+            </div>
+          </nav>     
+         </div>
+        </div>
          <!--   </div>  -->
 
 
-                        <div class="col-lg-8 col-xl-9 pl-lg-3">
-                            <div class="block-header mb-5">
-                              <h5>Change password  </h5>
-                            </div>
-                              <form class="content-block">
-                                <div class="row">
-                                  <div class="col-sm-6">
-                                    <div class="form-group">
-                                      <label for="password_old" class="form-label">Old password</label>
-                                      <input id="password_old" type="password" class="form-control">
-                                    </div>
-                                  </div>
-                                </div>
-                              <div class="row">
-                                <div class="col-sm-6">
-                                  <div class="form-group">
-                                    <label for="password_1" class="form-label">New password</label>
-                                    <input id="password_1" type="password" class="form-control">
-                                  </div>
-                                </div>
-                                <div class="col-sm-6">
-                                  <div class="form-group">
-                                    <label for="password_2" class="form-label">Retype new password</label>
-                                    <input id="password_2" type="password" class="form-control">
-                                  </div>
-                                </div>
-                              </div>
-              <!-- /.row-->
-                            <div class="text-center">
-                              <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Change password</button>
-                            </div>
-                          </form>
+    <div class="col-lg-8 col-xl-9 pl-lg-3">
+        <div class="block-header mb-5">
+          <h5>Change password  </h5>
+        </div>
+          <form class="content-block">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label for="password_old" class="form-label">Old password</label>
+                  <input id="password_old" type="password" class="form-control">
+                </div>
+              </div>
+            </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="password_1" class="form-label">New password</label>
+                <input id="password_1" type="password" class="form-control">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="password_2" class="form-label">Retype new password</label>
+                <input id="password_2" type="password" class="form-control">
+              </div>
+            </div>
+          </div>
+<!-- /.row-->
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Change password</button>
+    </div>
+  </form>
 
-                          <!-- <div class="block-header mb-5">
-                            <h5>Personal details</h5>
-                          </div> -->
-                         <!-- <form class="content-block">
-                             <div class="row">
-                              <div class="col-sm-6">
-                                <div class="form-group">
-                                  <label  class="form-label">Firstname</label>
-                                  <input  type="text" class="form-control" >
-                                </div>
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="form-group">
-                                  <label  class="form-label">Lastname</label>
-                                  <input  type="text" class="form-control" >
-                                </div>
-                              </div>
-                            </div>
-                         <div class="row">
-                           <div class="col-sm-6 col-md-3">
-                            <div class="form-group">
-                              <label  class="form-label">Zipcode</label>
-                              <input  type="text" class="form-control" >
-                            </div>
-                          </div>
-                          <div class="col-sm-6">
-                            <div class="form-group">
-                              <label  class="form-label">Phone number</label>
-                              <input type="text" class="form-control" >
-                            </div>
-                          </div>
-                          <div class="col-sm-6">
-                            <div class="form-group">
-                              <label class="form-label">Email</label>
-                              <input type="text" class="form-control" >
-                            </div>
-                          
-                          <div class="col-sm-12 text-center">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Save changes</button>
-                          </div>
-                         </div>
-                      </form> -->
-                    </div>
-                   </div>
-
-                 </div>
-
-
+      <!-- <div class="block-header mb-5">
+        <h5>Personal details</h5>
+      </div> -->
+     <!-- <form class="content-block">
+         <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label  class="form-label">Firstname</label>
+              <input  type="text" class="form-control" >
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label  class="form-label">Lastname</label>
+              <input  type="text" class="form-control" >
+            </div>
+          </div>
+        </div>
+     <div class="row">
+       <div class="col-sm-6 col-md-3">
+        <div class="form-group">
+          <label  class="form-label">Zipcode</label>
+          <input  type="text" class="form-control" >
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label  class="form-label">Phone number</label>
+          <input type="text" class="form-control" >
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="text" class="form-control" >
+        </div>
+      
+      <div class="col-sm-12 text-center">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>Save changes</button>
+      </div>
+     </div>
+  </form> -->
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
   </div>
-</div>
-</div>
 </template>
 
 
 
 <template id="dish-index-page">
-
   <div class="vue-component">
     <div class="container">
-
-
-    
      <div  class="img-top">
-
        <div class="font-top">
         <h3 style="font-size: 50px">Welcome to the world of homemade food</h3><br>
-        <h3 style="font-size: 30px">Are you a chief or a customer?</h3><br>
+        <h3 style="font-size: 30px">Are you a chef or a customer?</h3><br>
        </div>
-
-       
        <div align="center"> 
         <a href="/#/signup"><button style="background-color: #A33A80; " class="btn btn-template wide">SignUp</button></a>
         <a href="/#/login"><button style="background-color: #A33A80; " class="btn btn-template wide">LogIn</button></a>
        </div>
-       
      </div> 
 
     <!-- Search form -->
      <div class="section-search"  >
-    <div class="input-group"  >
-     
-      <span class="input-group-addon" >
-        <i class="glyphicon glyphicon-search"  ></i>
-      </span>
-      <input type="text"  style="font-size: 15px; " class="form-control"  placeholder="Search dish here" aria-label="Search" v-model="nameDishFilter"/>
-    </div>
-    </div><br>
+      <div class="input-group"  >
+       <span class="input-group-addon" >
+       <i class="glyphicon glyphicon-search"  ></i>
+       </span>
+       <input type="text"  style="font-size: 15px; " class="form-control"  placeholder="Search dish here" aria-label="Search" v-model="nameDishFilter"/>
+      </div>
+     </div><br>
      <!-- end search form -->
 
 
@@ -868,30 +662,23 @@
 
  
     <!-- Hide cuisine -->
-    <div>
-     <div class="cuisine">
+     <div>
+      <div class="cuisine">
        <button class="btn btn-template wide" style="font-size: 15px; " v-on:click="toggle()">Choose cuisine here</button>
-      
-     
-
-
-
-    
-
-   <div class="hidden" id="categories">
+        <div class="hidden" id="categories">
       <!-- <br> -->
-        <hr class="seprt">
+         <hr class="seprt">
       <!-- <br> -->
-      <button type="button" style="font-size: 15px;"  class="btn wide" v-for="category in categories" v-on:click="categoryFilter(category)">{{ category.title }}</button>
+         <button type="button" style="font-size: 15px;"  class="btn wide" v-for="category in categories" v-on:click="categoryFilter(category)">{{ category.title }}</button>
         
-      <div align="center">
+        <div align="center">
         <button  type="button" style="font-size: 15px;" class="btn " v-on:click="categoryFilter('all')">All cuisine</button>
-        <br>
-        <br>
+         <br>
+         <br>
+       </div>
       </div>
-   </div>
-  </div>
- </div>
+     </div>
+    </div>
  <!-- end hide cuisin -->  
 
      <!-- card my-->
@@ -929,25 +716,23 @@
 
 
   <div class="products-grid col-xl-12 col-lg-8 sidebar-left">
-
-     <div class="row">
-       <div v-for="dish in dishes" class="item col-xl-4 col-md-6" v-if="isValidDish(dish)">
-        <div v-if="current_user.provider === false || dish.user_id === current_user.id">
-        <div>
-          <div class="product is-gray">
-            <div class="image d-flex align-items-center justify-content-center">     
-              <div class="ribbon ribbon-primary text-uppercase"><a v-on:click="setCurrentDish(dish)"  data-toggle="modal" data-target="#exampleModal">More info</a></div><img :src="dish.image_url" alt="product" class="img-fluid" style="max-width: 300px;">
-            </div>
-            <div class="title"><small style="font-size: 10px;" class="text-muted">Cuisine: {{  dish.category.title }}</small><br>
-             <small class="text-muted" style="font-size: 10px;">Chief: {{  dish.user.first_name }}</small>
-              <h3 class="h6 text-uppercase no-margin-bottom" style="font-size: 15px;">{{  dish.name }}</h3><span style="font-size: 15px;" class="price text-muted">${{  dish.price }}</span></div>
-            
+   <div class="row">
+    <div v-for="dish in dishes" class="item col-xl-4 col-md-6" v-if="isValidDish(dish)">
+     <div v-if="current_user.provider === false || dish.user_id === current_user.id">
+      <div>
+       <div class="product is-gray">
+        <div class="image d-flex align-items-center justify-content-center">     
+         <div class="ribbon ribbon-primary text-uppercase"><a v-on:click="setCurrentDish(dish)"  data-toggle="modal" data-target="#exampleModal">More info</a></div><img :src="dish.image_url" alt="product" class="img-fluid" style="max-width: 300px;">
+          </div>
+          <div class="title"><small style="font-size: 10px;" class="text-muted">Cuisine: {{  dish.category.title }}</small><br>
+           <small class="text-muted" style="font-size: 10px;">Chef: {{  dish.user.first_name }}</small>
+           <h3 class="h6 text-uppercase no-margin-bottom" style="font-size: 15px;">{{  dish.name }}</h3><span style="font-size: 15px;" class="price text-muted">${{  dish.price }}</span></div>
+         </div>
+        </div>
        </div>
      </div>
-      </div>
-     </div>
     </div>
-  </div>
+   </div>
 
 
 
@@ -955,23 +740,19 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
-      <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" style="font-size: 15px;">{{ currentDish.name }}</h5>
-            
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <img class="img-fluid"  :src="currentDish.image_url" alt="Card image cap">
-            <!-- <p> {{ currentDish.price }}</p> -->
-            <p style="font-size: 13px;">  {{ currentDish.description }}</p>
-            <!-- <p> Chief: {{ currentDish.user}}</p> -->
-           
-          </div>
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-size: 15px;">{{ currentDish.name }}</h5>            
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img class="img-fluid"  :src="currentDish.image_url" alt="Card image cap">
+          <p style="font-size: 13px;">  {{ currentDish.description }}</p>         
+        </div>
 
           <div class="modal-footer">
 
@@ -981,7 +762,7 @@
  
 
       <div v-if="currentDish.user_id == current_user.id">
-      <a :href="'/#/dishes/' + currentDish.id + '/edit'"><button data-dismiss="modal" data-backdrop="false"  type="button" class="btn btn-secondary">Edit Dish</button></a>
+      <a :href="'/#/dishes/' + currentDish.id + '/edit'"><button   type="button"  class="btn btn-secondary">Edit Dish</button></a>
            
       <a :href="'/#/dishes/' + currentDish.id + '/delete'"><button type="button" class="btn btn-secondary">Delete Dish</button></a>
     </div>
@@ -998,11 +779,9 @@
       <a href="/#/carted_dishes/new"><button v-on:click="submit()" type="button" data-dismiss="modal" data-backdrop="false" class="btn btn-secondary">Add to cart</button></a> 
      
     </div>                                                     
-</form>
-         
-            </div>
-
-            <div class="modal-footer">
+    </form>
+    </div>
+    <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               </div>
             </div>
@@ -1091,7 +870,7 @@
 
       <div class="form-group edit-font" >
        
-         <input type="text" class="form-control insite-input" v-model="category_id" list="titles" >
+         <input type="text" class="form-control insite-input" i v-model="category_id" list="titles" >
         <datalist id="titles">
 
            <option v-for="category in categories">{{ category.id + " " + category.title }}</option>
@@ -1104,11 +883,11 @@
 
       <div class="form-group edit-font">
         <label>Image:</label>
-        <input type="text" class="form-control insite-input" v-model="image_url">
+        <input type="text"  class="form-control insite-input" v-model="image_url">
       </div>
 
       
- <button class="btn btn-primary " style="font-size: 20px; background-color: #4CAF50; border-color: #4CAF50;" v-on:click="submit()">Submit</button>
+ <button class="btn btn-primary " style="font-size: 20px; background-color: #4CAF50; border-color: #4CAF50;" data-dismiss="modal" data-backdrop="false" v-on:click="submit()">Submit</button>
   </div>
 </div>
 </div>
@@ -1198,11 +977,9 @@
     
        
         <div class="container">
-        <div class="CTAs d-flex align-items-center justify-content-center justify-content-md-end flex-column flex-md-row"><a href="shop.html" class="btn btn-template-outlined wide">Continue Shopping</a><a href="#" class="btn btn-template wide" v-on:click="checkout()">Checkout</a></div>
+        <div class="CTAs d-flex align-items-center justify-content-center justify-content-md-end flex-column flex-md-row"><a href="/#/" class="btn btn-template-outlined wide">Continue Shopping</a><a href="/#/" class="btn btn-template wide" v-on:click="checkout()">Checkout</a></div>
       </div>
-     </div> <br>
-     <br>
-
+     </div> 
  
  
 

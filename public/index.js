@@ -285,9 +285,9 @@ var DishesEditPage = {
 
     axios.get("/dishes/" + this.$route.params.id).then(
       function(response) {
-           // $('#exampleModal').modal('hide');
-           // $('body').removeClass('modal-open');
-           // $('.modal-backdrop').remove();
+           $('#exampleModal').modal('hide');
+           $('body').removeClass('modal-open');
+           $('.modal-backdrop').remove();
         this.name = response.data.name;
         this.price = response.data.price;
         this.description = response.data.description;
@@ -301,7 +301,7 @@ var DishesEditPage = {
            // $('#exampleModal').modal('hide');
            // $('body').removeClass('modal-open');
            // $('.modal-backdrop').remove();
-      //console.log(response.data);
+      console.log(response.data);
       }.bind(this));
     
     
@@ -320,9 +320,9 @@ var DishesEditPage = {
       axios
         .patch("/dishes/" + this.$route.params.id, params)
         .then(function(response) {
-           $('#exampleModal').modal('hide');
-           $('body').removeClass('modal-open');
-           $('.modal-backdrop').remove();
+           // $('#exampleModal').modal('hide');
+           // $('body').removeClass('modal-open');
+           // $('.modal-backdrop').remove();
           router.push("/");
         })
         .catch(
