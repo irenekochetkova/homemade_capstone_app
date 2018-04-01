@@ -49,8 +49,6 @@ var ProfileShowPage = {
   data: function() {
     return {
       current_user: {}
-       // userDishes: []
-
     };
   },
 
@@ -59,39 +57,10 @@ var ProfileShowPage = {
       console.log(response.data);
       this.current_user = response.data;
     }.bind(this));
-    // axios.get("http://localhost:3000/dishes").then(function(response) {
-    //   console.log(response.data);
-    //   this.dishes = response.data;
-    // }.bind(this));
   },
 
-
-// methods: {
-//   currentUserDish: function(dish) {
-//       axios.get("http://localhost:3000/dishes").then(function(response) {
-//       this.dishes = response.data;
-//         userDishes = [];
-//         this.dishes.forEach(function(dish) {
-//           if (dish.user_id === this.current_user.id) { 
-//             userDishes.push(dish);
-//           }
-
-//         });
-//         this.dishes = userDishes;
-      
-      
-//       console.log(this.dishes); 
-//       // console.log(response.data);
-//     }.bind(this));
-      
-//       }
-// },
-   
-   
-  
-
 };
-// 
+
 
  var DishesIndexPage = {
   template: "#dish-index-page",
@@ -107,9 +76,7 @@ var ProfileShowPage = {
       current_user: {},
      
       quantity: ""
-     
-
-      
+        
     };
   },
   created: function() {
@@ -165,21 +132,14 @@ methods: {
         
     },
 
-
-
     toggle: function() {
       var listCategories = document.getElementById('categories');
       listCategories.classList.toggle('hidden');  
     },
 
-    
-
-
-
     isValidDish: function(dish) {
       return dish.name.toLowerCase().includes(this.nameDishFilter.toLowerCase());
-       
-      },
+    },
 
     categoryFilter: function(category) {
       axios.get("http://localhost:3000/dishes").then(function(response) {
@@ -190,23 +150,15 @@ methods: {
           if (dish.category.id === category.id) { 
             filtedDishes.push(dish);
           }
-
         });
         this.dishes = filtedDishes;
-      } 
-      
+      }       
       console.log(this.dishes); 
       // console.log(response.data);
     }.bind(this))
       
-      }
+  }
 },
-// computed: {
-//   visibleDish: function(dish) {
-//     user.provider === false || dish.user_id === current_user.id
-//   }
-// }
-
  
  };
  
@@ -219,10 +171,7 @@ var DishesNewPage = {
       price: "",
       description: "",
       category_id: "",
-
-      image_url: "",
-     
-      // user_id: "",
+      image_url: "",     
       errors: [],
       categories: []
     };
@@ -272,8 +221,6 @@ var DishesEditPage = {
       description: "",
       category_id: "",
       image_url: "",
-      
-      // dish_category: "",
       user_id: "",
       errors: [],
       categories: []
@@ -291,19 +238,13 @@ var DishesEditPage = {
         this.name = response.data.name;
         this.price = response.data.price;
         this.description = response.data.description;
-        // this.dish_category = response.data.category_id;
         this.image_url = response.data.image_url;
-        
         this.user_id = response.data.user_id;
       }.bind(this)),
     axios.get("/categories/").then(function(response) {
       this.categories = response.data; 
-           // $('#exampleModal').modal('hide');
-           // $('body').removeClass('modal-open');
-           // $('.modal-backdrop').remove();
       console.log(response.data);
       }.bind(this));
-    
     
   },
   
@@ -320,21 +261,15 @@ var DishesEditPage = {
       axios
         .patch("/dishes/" + this.$route.params.id, params)
         .then(function(response) {
-           // $('#exampleModal').modal('hide');
-           // $('body').removeClass('modal-open');
-           // $('.modal-backdrop').remove();
           router.push("/");
         })
         .catch(
           function(error) {
-            this.errors = error.response.data.errors;
-           
+            this.errors = error.response.data.errors;           
           }.bind(this)
         );
     }
   },
-
-
 };
 
 
@@ -459,9 +394,7 @@ var CartedDishesIndexPage = {
           );
       }
   },
-  
- 
-     
+      
 };
 
 var CartedDishesDeletePage = {
@@ -488,11 +421,6 @@ var CartedDishesDeletePage = {
   }
 };
 
-
-
-
-
-
 var OrdersIndexPage = {
   template: "#orders-index-page",
   data: function() {
@@ -515,7 +443,6 @@ var OrdersIndexPage = {
     }.bind(this)),
     axios.get("/orders/").then(function(response) {
       this.orders = response.data; 
-      // this.carted_dishes = this.orders["carted_dishes"]
       // console.log(response.data);
     }.bind(this));
     
@@ -565,12 +492,7 @@ var router = new VueRouter({
     { path: "/carted_dishes", component: CartedDishesIndexPage },
     { path: "/carted_dishes/:id/delete", component: CartedDishesDeletePage },
     { path: "/orders", component: OrdersIndexPage },
-    { path: "/orders/:id/delete", component: OrdersDeletePage }
-
-  
-    
-    
-    
+    { path: "/orders/:id/delete", component: OrdersDeletePage }    
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
