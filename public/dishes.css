@@ -1,9 +1,25 @@
-body {
+/*body {*/
   /*font-family: Futura, sans-serif;*/
   /*background-image: url('light-veneer.png');*/
+
+/*}*/
+
+/* body {
+    width: 100%!important;
+    height: 100%!important;
+} 
+
+body{
+ height:100vh; 
+ }
+*/
+body
+{
+padding:0px;
+margin:0px;
+width:100%;
+height:100%;
 }
-
-
 
 /*#nav_bar {
   background-color: green;
@@ -12,8 +28,10 @@ body {
 
 .small-img {
     display:block;
-    /*width: 200px;*/
-    width:100%;
+    width: 80px;
+    height: 80px;
+
+    /*width:100%;*/
   }
 
 .image-left {
@@ -22,13 +40,13 @@ body {
     height: 50px;
 }
 
-/*.wrapper {
+.wrapper {
   padding: 1px;
   margin: 0 auto;
   max-width: 1200px;
   border: 8px d Steelblue;
   border-bottom: none;
-}*/
+}
   
 .hidden {
   display: none;
@@ -49,14 +67,20 @@ body {
   
 }
 
+.more {
+  font-size: 10px;
+  background-color: #4CAF50;
+  color: white!important;
+}
+
 
 
 .cuisine {
   padding: 1px;
   margin: 0 auto;
   text-align: center;
-  font-family: Cardo;
-  font-size: 20px;
+  font-family:  Cardo;
+  font-size: 20px!important;
   
 }
  
@@ -64,9 +88,11 @@ body {
     
     padding: 150px;
     margin: 0 auto;
-    background: url(top_picture.jpeg);
+    background: url(purple.jpg);
     background-repeat: no-repeat;
     background-size: 100% 600px;
+    color: #A33A80;
+    text-shadow: 2px 2px white;
 }
 
 .card-img-top {
@@ -89,7 +115,7 @@ body {
 
   .button5 {
     background-color: #4CAF50; 
-    border-radius: 60%;
+    border-radius: 80%;
     color: black;
     padding: 7px 32px;
     text-align: center;
@@ -97,14 +123,16 @@ body {
     font-size: 1.2em;
     transition-duration: 0.4s;
     background-color: transparent; 
-    border: 2px solid #4CAF50;
+    border: 2px solid #A33A80;;
     margin: 30px;
 }
 
  .section-search {
-    padding: 200px;
-    margin: 0 auto;
-    background-color: transparent; 
+    padding: 20px!important;
+    margin: 0 auto!important;
+    background-color: transparent!important; 
+    font-size: 20rem!important;
+
  }
 
 .card-text-header {
@@ -114,7 +142,7 @@ body {
 .edit-page {
   /*background-image: url('for_new_dish.jpg');*/
   width: 50%;
-  color: white;
+  color: black;
   padding: 80px;
   margin: 0px;
   font-family: Cardo;
@@ -122,17 +150,28 @@ body {
 
  }
 .back-image {
-  background-image: url('for_new_dish.jpg');
+  background-image: url('apple-close-up-delicious-533343.jpg');
    display:block;
-   background-size: 800px 800px;
+   /*background-size: 800px 800px;*/
    background-repeat: no-repeat;
-   margin: 20px auto;
+   /*margin: 20px auto;*/
 
-    /*background-size: cover;*/
+    background-size: cover;
 
 }
 .edit-font {
+  font-size: 20px!important;
+}
+
+.insite-input {
+  font-size: 15px!important;
+  border-color: #4CAF50!important;
+}
+
+.button2 {
   font-size: 20px;
+  background-color: #4CAF50;
+  border-color: #4CAF50;
 }
 
 .img-carted {
@@ -146,12 +185,13 @@ body {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+
 }
 
 #customers td, #customers th {
     border: 1px solid #ddd;
     padding: 8px;
-    /*background-color: white;*/
+    background-color: white;
 }
 
 #customers tr:nth-child(even){background-color: lemonchiffon;}
@@ -162,7 +202,7 @@ body {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #4CAF50;
+    background-color: #9055A2;
     color: white;
 }
 
@@ -181,8 +221,12 @@ body {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   background-color: wheat;
   color: white;
-   /*padding-top: 12px;*/
+   padding-top: 12px;
     width: 100%;
     font-size: 16px;
 
 }*/
+.nav-font {
+  font-size: 15px!important;
+}
+

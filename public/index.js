@@ -86,6 +86,10 @@ var ProfileShowPage = {
       
 //       }
 // },
+   
+   
+  
+
 };
 // 
 
@@ -136,6 +140,7 @@ methods: {
  
 
   submit: function() {
+
       var params = {
         quantity: this.quantity,
         dish_id:  this.currentDish.id
@@ -145,6 +150,10 @@ methods: {
         .post("/carted_dishes", params)
         .then(function(response) {
           console.log(response.data)
+           $('#exampleModal').modal('hide');
+           $('body').removeClass('modal-open');
+           $('.modal-backdrop').remove();
+         
           router.push("/");
         })
         .catch(
@@ -152,7 +161,8 @@ methods: {
             this.errors = error.response.data.errors;
           }.bind(this)
         );
-        $('#exampleModal').modal('hide');
+       
+        
     },
 
 
@@ -218,15 +228,18 @@ var DishesNewPage = {
     };
   },
   created: function() {
-   $('#exampleModal').modal('hide');
+  
     axios.get("http://localhost:3000/categories").then(function(response) {
 
       this.categories = response.data; 
+      
       console.log(response.data);
+
 
     }.bind(this));
   },
   methods: {
+
     submit: function() {
       var params = {
         name: this.name,
@@ -272,6 +285,9 @@ var DishesEditPage = {
 
     axios.get("/dishes/" + this.$route.params.id).then(
       function(response) {
+           // $('#exampleModal').modal('hide');
+           // $('body').removeClass('modal-open');
+           // $('.modal-backdrop').remove();
         this.name = response.data.name;
         this.price = response.data.price;
         this.description = response.data.description;
@@ -282,13 +298,14 @@ var DishesEditPage = {
       }.bind(this)),
     axios.get("/categories/").then(function(response) {
       this.categories = response.data; 
+           // $('#exampleModal').modal('hide');
+           // $('body').removeClass('modal-open');
+           // $('.modal-backdrop').remove();
       //console.log(response.data);
       }.bind(this));
     
     
   },
-
-
   
   methods: {
     submit: function() {
@@ -303,6 +320,9 @@ var DishesEditPage = {
       axios
         .patch("/dishes/" + this.$route.params.id, params)
         .then(function(response) {
+           $('#exampleModal').modal('hide');
+           $('body').removeClass('modal-open');
+           $('.modal-backdrop').remove();
           router.push("/");
         })
         .catch(
@@ -369,6 +389,9 @@ var DishesDeletePage = {
       // console.log(response.data);
 
       this.dish = response.data.delete;
+           $('#exampleModal').modal('hide');
+           $('body').removeClass('modal-open');
+           $('.modal-backdrop').remove();
 
       router.push("/");
         })
@@ -406,6 +429,7 @@ var CartedDishesIndexPage = {
   },
 
   created: function() {
+
     axios.get("/carted_dishes").then(function(response) {
       this.carted_dishes = response.data; 
       console.log(response.data);
@@ -436,9 +460,7 @@ var CartedDishesIndexPage = {
       }
   },
   
- computed: {
-  
- }
+ 
      
 };
 
@@ -446,7 +468,8 @@ var CartedDishesDeletePage = {
   template: "#cartedDishes-delete-page",
   data: function() {
     return {
-      dish: {}
+      dish: {},
+      error: []
     };
   },
   created: function() {
@@ -454,9 +477,18 @@ var CartedDishesDeletePage = {
     axios.delete("/carted_dishes/" + this.$route.params.id).then(function(response) {
       console.log(response.data);
       this.carted_dish = response.data.delete;
+      router.push("/carted_dishes");
+      })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+
+            router.push("/");
     }.bind(this));
   }
 };
+
+
 
 
 
