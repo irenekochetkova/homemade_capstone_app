@@ -430,17 +430,18 @@
  <!-- end hide cuisin -->  
 
     <div class="products-grid col-xl-12 col-lg-8 sidebar-left">
-      <div class="row">
-        <div v-for="dish in dishes" class="item col-xl-4 col-md-6" v-if="isValidDish(dish)">
+      <div class="row"  >
+        <div  v-for="dish in dishes" class="item col-xl-4 col-md-6"  v-if="isValidDish(dish)">
           <div v-if="current_user.provider === false || dish.user_id === current_user.id">
             <div>
               <div class="product is-gray">
                 <div class="image d-flex align-items-center justify-content-center">   
                   <div class="ribbon ribbon-primary text-uppercase"><a v-on:click="setCurrentDish(dish)"  data-toggle="modal" data-target="#exampleModal">More info</a></div><img :src="dish.image_url" alt="product" class="img-fluid" style="max-width: 300px;">
-                  </div>
-                  <div class="title"><small style="font-size: 10px;" class="text-muted">Cuisine: {{  dish.category.title }}</small><br>
+                </div>
+                <div class="title"><small style="font-size: 10px;" class="text-muted">Cuisine: {{  dish.category.title }}</small><br>
                   <small class="text-muted" style="font-size: 10px;">Chef: {{  dish.user.first_name }}</small>
-                  <h3 class="h6 text-uppercase no-margin-bottom" style="font-size: 15px;">{{  dish.name }}</h3><span style="font-size: 15px;" class="price text-muted">${{  dish.price }}</span></div>
+                  <h3 class="h6 text-uppercase no-margin-bottom" style="font-size: 15px;">{{  dish.name }}</h3><span style="font-size: 15px;" class="price text-muted">${{  dish.price }}</span>
+                </div>
               </div>
             </div>
           </div>
